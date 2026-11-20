@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "PedalLib")(type "KiCad")(uri "${KIPRJMOD}/../common/lib/PedalLib.kicad_sym")(options "")(descr "THR pedalboard project symbols"))
+)

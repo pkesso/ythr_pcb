@@ -1,0 +1,101 @@
+(footprint "WirePads_1x03_P2.54mm_Drill1.0mm"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "3 wire solder pads, 1.0 mm holes, 2.54 mm pitch (no part fitted)")
+	(tags "wire pad solder")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "2d70ec4d-ecea-5481-9def-264f3878feb9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "WirePads_1x03_P2.54mm_Drill1.0mm"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "1c13ee85-c6a6-5c54-8a3a-a9267d596f91")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fc05ea73-f072-55dc-b925-85fb070131d6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7b5e4650-75f7-5d47-b5ed-c35d0dffdea1")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -1.38 -1.38)
+		(end 1.38 6.46)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "3287e8a8-4c25-5afe-8ffd-041f898a8770")
+	)
+	(fp_rect
+		(start -1.77 -1.77)
+		(end 1.77 6.86)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "3d8db786-a9dc-56af-baac-74b9c7b1c881")
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 1.7 1.7)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "84e59a16-6943-54cd-9cb2-baa638953f55")
+	)
+	(pad "2" thru_hole circle
+		(at 0 2.54)
+		(size 1.7 1.7)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "0c289257-feba-5543-943f-ce51cd6f603b")
+	)
+	(pad "3" thru_hole circle
+		(at 0 5.08)
+		(size 1.7 1.7)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "5cc5f91c-5c9b-52a0-ac8d-95a7eb840f37")
+	)
+	(embedded_fonts no)
+)

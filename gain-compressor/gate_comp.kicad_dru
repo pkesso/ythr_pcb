@@ -1,0 +1,19 @@
+(version 1)
+
+# begin jlcpcb_rules.py
+(rule "jlcpcb_pad_annular"
+    (constraint annular_width (min 0.18mm))
+    (condition "A.Type == 'Pad'"))
+(rule "jlcpcb_pad_hole_to_hole"
+    (constraint hole_to_hole (min 0.45mm))
+    (condition "A.Type == 'Pad' && B.Type == 'Pad'"))
+(rule "jlcpcb_npth"
+    (constraint hole_size (min 0.5mm))
+    (condition "A.Pad_Type == 'NPTH, mechanical'"))
+(rule "jlcpcb_plated_slot"
+    (constraint hole_size (min 0.5mm))
+    (condition "A.Pad_Type == 'Through-hole' && A.Hole_Size_X != A.Hole_Size_Y"))
+(rule "jlcpcb_npth_slot"
+    (constraint hole_size (min 1mm))
+    (condition "A.Pad_Type == 'NPTH, mechanical' && A.Hole_Size_X != A.Hole_Size_Y"))
+# end jlcpcb_rules.py

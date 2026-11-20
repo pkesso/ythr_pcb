@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "PedalLib")(type "KiCad")(uri "${KIPRJMOD}/../common/lib/PedalLib.pretty")(options "")(descr "THR pedalboard project footprints"))
+)

@@ -1,0 +1,84 @@
+(footprint "Hole_6.4mm_M6_NoHead"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "6.4 mm hole for M6, nothing fastened on the board")
+	(tags "hole M6")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "f9bbf8f1-ea82-57ea-aed8-aef3b7e67af8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Hole_6.4mm_M6_NoHead"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "67593f6d-629a-53ea-baef-fd4bb206e9cd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fac71042-945a-50c5-9e61-cd4a34867d11")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e6824400-4969-5ee4-a81a-95f5b92a51b6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_circle
+		(center 0 0)
+		(end 3.45 0)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "e4b69239-c80a-5e5a-a367-724261af4175")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 3.2 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "cc24b8e0-f759-52c2-a2c7-d1672c91bc53")
+	)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 6.4 6.4)
+		(drill 6.4)
+		(layers "*.Cu" "*.Mask")
+		(uuid "95036f5e-53d1-587a-b291-9fc95064f855")
+	)
+	(embedded_fonts no)
+)

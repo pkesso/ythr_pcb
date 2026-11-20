@@ -1,0 +1,13 @@
+{
+  "skill": "5dfe965+uncommitted",
+  "files": {
+    "gerber.py": "a5e46ae98745f6ee8e15a80c9459e56a7704152363dc56dfea70396770cd5991",
+    "jlcpcb_rules.py": "daf7a09f069e4a0b6d4f40ab0c4c9f3e6cc8b81c2aa76cd584c95a63ac67fcd0",
+    "kicad_checks.py": "715ba9bf1f7e70e47ed2cef79e66ba85699445943e2632b91428a9099540225e",
+    "kicad_cli.py": "7cd98ef72efa5873d60832928f3754485517cb8b22ecabbe8f8e14a859a4e540",
+    "kicad_gen.py": "22e342dd1bab2633f9ab9efa76ad2bb77f7bec980f7ca00bb4695cab50fb7414",
+    "ngspice.py": "379f69643f9b893ff36f5a404b1dd3ef3eef59299d164b58d7b26819bee1b13c",
+    "repo_check.py": "64b8a68c186b8a0f47e19d4028875534f5c502b40e7d3b26d49784b40e0b88ae",
+    "views.py": "7ab2112db379235370b1c41547f2365534b6f982fbe59627cf002bddccce45c0"
+  }
+}

@@ -1,0 +1,494 @@
+{
+ "C1002": {
+  "alternates": [
+   {
+    "jlc_stock": 351466,
+    "lcsc": "C19330",
+    "mpn": "BLM18AG601SN1D"
+   },
+   {
+    "jlc_stock": 515112,
+    "lcsc": "C73326",
+    "mpn": "CBG160808U601T"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Sunlord",
+  "mpn": "GZ1608D601TF",
+  "note": "600R@100MHz, 200 mA, 0.45 R",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0115
+     ],
+     [
+      4000,
+      0.0072
+     ]
+    ],
+    "stock": 442867
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C143789": {
+  "alternates": [
+   {
+    "jlc_stock": 31,
+    "lcsc": "C22402500",
+    "mpn": "PEC11R-4015F-N0024",
+    "note": "no push switch (unused on this board), same pins otherwise"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Bourns",
+  "mpn": "PEC11R-4015F-S0024",
+  "sources": {
+   "findchips": {
+    "authorized_distributors": 10,
+    "note": "no lifecycle flags"
+   },
+   "jlcpcb": {
+    "class": "extended",
+    "price": [
+     [
+      1,
+      2.708
+     ],
+     [
+      75,
+      1.6575
+     ]
+    ],
+    "stock": 3652
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C14663": {
+  "alternates": [
+   {
+    "jlc_stock": 759307,
+    "lcsc": "C53084449",
+    "mpn": "CC0603X7R50V104KN"
+   },
+   {
+    "jlc_stock": 3592438,
+    "lcsc": "C149620",
+    "mpn": "AC0603KRX7R9BB104"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "YAGEO",
+  "mpn": "CC0603KRX7R9BB104",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0102
+     ],
+     [
+      4000,
+      0.0062
+     ]
+    ],
+    "stock": 36313706
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C15850": {
+  "alternates": [
+   {
+    "jlc_stock": 53123,
+    "lcsc": "C5448891",
+    "mpn": "TCC0805X5R106K250FT"
+   },
+   {
+    "jlc_stock": 45282,
+    "lcsc": "C329933",
+    "mpn": "C2012X5R1E106KT000N"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Samsung",
+  "mpn": "CL21A106KAYNNNE",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0354
+     ],
+     [
+      2000,
+      0.0215
+     ]
+    ],
+    "stock": 8509172
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C21190": {
+  "alternates": [
+   {
+    "jlc_stock": 13845593,
+    "lcsc": "C22548",
+    "mpn": "RC0603FR-071KL"
+   },
+   {
+    "jlc_stock": 10372,
+    "lcsc": "C5172965",
+    "mpn": "1622866-1"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "UNI-ROYAL",
+  "mpn": "0603WAF1001T5E",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0017
+     ],
+     [
+      5000,
+      0.0012
+     ]
+    ],
+    "stock": 25407913
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C2286": {
+  "alternates": [
+   {
+    "jlc_stock": null,
+    "lcsc": "C84263",
+    "mpn": "NCD0603R1"
+   },
+   {
+    "jlc_stock": 4394,
+    "lcsc": "C83242",
+    "mpn": "VLMS1300-GS08"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Hubei KENTO",
+  "mpn": "KT-0603R",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0077
+     ],
+     [
+      4000,
+      0.0046
+     ]
+    ],
+    "stock": 6268083
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C23179": {
+  "alternates": [
+   {
+    "jlc_stock": 1120926,
+    "lcsc": "C114669",
+    "mpn": "RC0603FR-07470RL"
+   },
+   {
+    "jlc_stock": 690135,
+    "lcsc": "C116694",
+    "mpn": "RS-03K4700FT"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "UNI-ROYAL",
+  "mpn": "0603WAF4700T5E",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0023
+     ],
+     [
+      5000,
+      0.0015
+     ]
+    ],
+    "stock": 3886472
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C25804": {
+  "alternates": [
+   {
+    "jlc_stock": 11627293,
+    "lcsc": "C98220",
+    "mpn": "RC0603FR-0710KL"
+   },
+   {
+    "jlc_stock": 121908,
+    "lcsc": "C103199",
+    "mpn": "RTT031002FTP"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "UNI-ROYAL",
+  "mpn": "0603WAF1002T5E",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0022
+     ],
+     [
+      5000,
+      0.0016
+     ]
+    ],
+    "stock": 45422722
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C29718": {
+  "alternates": [
+   {
+    "jlc_stock": 195528,
+    "lcsc": "C69593",
+    "mpn": "RC-ML08W103JT"
+   },
+   {
+    "jlc_stock": 715758,
+    "lcsc": "C107374",
+    "mpn": "YC164-JR-0710KL"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "UNI-ROYAL",
+  "mpn": "4D03WGJ0103T5E",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0075
+     ],
+     [
+      5000,
+      0.005
+     ]
+    ],
+    "stock": 1132412
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C385834": {
+  "alternates": [],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Ckmtw",
+  "mpn": "R-RJ45R08P-A004",
+  "note": "no drop-in alternate with the same land pattern checked",
+  "sources": {
+   "jlcpcb": {
+    "class": "extended",
+    "price": [
+     [
+      1,
+      0.2226
+     ],
+     [
+      80,
+      0.1331
+     ]
+    ],
+    "stock": 108130
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C506653": {
+  "alternates": [
+   {
+    "jlc_stock": 3393,
+    "lcsc": "C558584",
+    "mpn": "MCP23017T-E/SS",
+    "note": "same part on reel"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "Microchip",
+  "mpn": "MCP23017-E/SS",
+  "sources": {
+   "findchips": {
+    "authorized_distributors": 12,
+    "note": "Projected EOL 2036-06-24 (Microchip direct)"
+   },
+   "jlcpcb": {
+    "class": "extended",
+    "price": [
+     [
+      1,
+      1.6919
+     ],
+     [
+      47,
+      1.2763
+     ]
+    ],
+    "stock": 392
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C545194": {
+  "alternates": [
+   {
+    "jlc_stock": 22,
+    "lcsc": "C580853",
+    "mpn": "LTC4300A-1IMS8#PBF",
+    "note": "pin-compatible, MSOP-8: needs a footprint change"
+   },
+   {
+    "jlc_stock": 5,
+    "lcsc": "C880333",
+    "mpn": "TCA4307DGKR",
+    "note": "pin-compatible, MSOP-8: needs a footprint change; pre-order"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "NXP",
+  "mpn": "PCA9511ADP,118",
+  "note": "hot-swap I2C buffer; no in-stock drop-in alternate in TSSOP-8 at JLCPCB",
+  "sources": {
+   "findchips": {
+    "authorized_distributors": 10,
+    "note": "no lifecycle flags; datasheet Rev 5.0, 2025-07-01"
+   },
+   "jlcpcb": {
+    "class": "extended",
+    "price": [
+     [
+      1,
+      1.3254
+     ],
+     [
+      2500,
+      0.6562
+     ]
+    ],
+    "stock": 11415
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C558418": {
+  "alternates": [
+   {
+    "jlc_stock": 8316,
+    "lcsc": "C384887",
+    "mpn": "SRV05-4 (Leiditech)"
+   },
+   {
+    "jlc_stock": 64701,
+    "lcsc": "C13612",
+    "mpn": "SRV05-4.TCT (Semtech)"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "TECH PUBLIC",
+  "mpn": "SRV05-4",
+  "sources": {
+   "findchips": {
+    "authorized_distributors": 19,
+    "note": "no lifecycle flags"
+   },
+   "jlcpcb": {
+    "class": "extended",
+    "price": [
+     [
+      1,
+      0.0267
+     ],
+     [
+      3000,
+      0.015
+     ]
+    ],
+    "stock": 251913
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ },
+ "C57112": {
+  "alternates": [
+   {
+    "jlc_stock": 890045,
+    "lcsc": "C100042",
+    "mpn": "CC0603KRX7R9BB103"
+   },
+   {
+    "jlc_stock": 48736,
+    "lcsc": "C53084448",
+    "mpn": "CC0603X7R50V103KN"
+   }
+  ],
+  "checked": "2026-11-10",
+  "lifecycle": "Active",
+  "manufacturer": "FH",
+  "mpn": "0603B103K500NT",
+  "sources": {
+   "jlcpcb": {
+    "class": "basic",
+    "price": [
+     [
+      1,
+      0.0103
+     ],
+     [
+      4000,
+      0.007
+     ]
+    ],
+    "stock": 5578930
+   },
+   "octopart": "not checked (CAPTCHA)"
+  }
+ }
+}
