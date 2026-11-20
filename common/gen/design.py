@@ -1,5 +1,5 @@
 """Circuit description shared by the pedal boards: parts, nets, placement, and the standard blocks
-(bus connector, MCP23017, encoder, indicator, footswitch). See pcb/README.md for the decisions behind them."""
+(bus connector, MCP23017, encoder, indicator, footswitch). See README.md for the decisions behind them."""
 from dataclasses import dataclass, field
 
 from .parts import CATALOG
@@ -49,7 +49,7 @@ class Design:
         self.keepouts = []          # extra router keepouts: (x0, y0, x1, y1, layers)
         self.keep_circles = []      # router keep-outs: (x, y, r), e.g. the nut area of a footswitch
         self.outline = None         # gen.outline.Outline of an enclosure template; None = plain width x height
-        self.jlc_rules = False      # put JLCPCB's limits into the project (pcb/tools/jlcpcb_rules.py)
+        self.jlc_rules = False      # put JLCPCB's limits into the project (tools/jlcpcb_rules.py)
         self.rim = False            # print the template's rim (Outline.frame) on the silkscreen of both sides
         self.silk = None            # silkscreen colour (stackup); None = white, black on a white board
 
@@ -84,7 +84,7 @@ class Design:
 
 # ---------------------------------------------------------------- blocks
 def bus(d, buffer=False, ferrite=False):
-    """8P8C bus jack (pinout: pcb/README.md, T568B wire order), TVS, bulk capacitor, optional I2C pull-ups.
+    """8P8C bus jack (pinout: README.md, T568B wire order), TVS, bulk capacitor, optional I2C pull-ups.
 
     ferrite: the jack's VCC (net VBUS, clamped by the TVS) reaches the board's +3V3 through a ferrite bead; the bulk
     capacitor sits behind it. buffer: a PCA9511A hot-swap buffer between the bus (SCL / SDA, the jack side) and the

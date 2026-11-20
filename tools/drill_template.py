@@ -1,6 +1,6 @@
 """Panel drill template for a pedal board, from the board's own placement data (its gen_<board>.py design).
 
-    python drill_template.py <board dir> <generator module>      e.g. pcb/gain-compressor gen_gate_comp
+    python drill_template.py <board dir> <generator module>      e.g. gain-compressor gen_gate_comp
 
 Writes <name>_drill.pdf next to the board: A4 portrait at 1:1 (print at 100 %, no "fit to page"), a 50 mm scale
 bar to check the print, the board outline as a reference and a cross on each hole to drill in the lid, seen from

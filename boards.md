@@ -56,7 +56,7 @@ blue and orange LED) ≈ $18 in fees; THT on the top side only (9 encoders, 2 di
 
 - Encoder land pattern and the 6 mm body height come from LCSC/EasyEDA data and the prototype measurement, not
   from the Bourns drawing (the PDF could not be read here).
-- RJ45 pin numbering = T568B wire order in pcb/README.md; check against the existing cables before ordering.
+- RJ45 pin numbering = T568B wire order in README.md; check against the existing cables before ordering.
 - Lamp / LED / footswitch positions on the panel follow the board layout; no drill template yet.
 - Gerbers are not exported yet (zones are filled by KiCad on export).
 - Economic PCBA places parts on one side only, so the pedals' RJ45 (bottom side, with THT encoders on top) may

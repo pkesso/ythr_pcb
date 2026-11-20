@@ -39,7 +39,7 @@ CATALOG = {
     "WIRE3": dict(symbol="Conn_01x03", footprint="WirePads_1x03_P2.54mm_Drill1.0mm", value="wire", lcsc=None,
                   datasheet="", bom=False),
     # Gate + Comp: hot-swap bus buffer, supply ferrite, footswitch debounce, test points (checked 2026-11-10,
-    # alternates and stock in pcb/parts/availability.json)
+    # alternates and stock in parts/availability.json)
     "PCA9511A": dict(symbol="PCA9511A", footprint="TSSOP-8_4.4x3mm_P0.65mm", value="PCA9511ADP", lcsc="C545194",
                      datasheet="https://www.nxp.com/docs/en/data-sheet/PCA9511A.pdf", jlc="extended"),
     "FB600": dict(symbol="FerriteBead_Small", footprint="L_0603_1608Metric", value="600R@100MHz", lcsc="C1002",

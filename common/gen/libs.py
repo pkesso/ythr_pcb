@@ -1,10 +1,10 @@
 """Project libraries: footprint snapshot + own footprints (PedalLib.pretty) and symbols (PedalLib.kicad_sym).
 
-The libraries live in pcb/common/lib and are shared by every board. Library footprints are copied from the installed
+The libraries live in common/lib and are shared by every board. Library footprints are copied from the installed
 KiCad (a snapshot, so the boards do not depend on the installed library version); footprints that KiCad does not
 have are generated here from the manufacturers' land patterns.
 
-    python -m gen.libs          (from pcb/common) regenerates the libraries
+    python -m gen.libs          (from common/) regenerates the libraries
 """
 import os
 import re

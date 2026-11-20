@@ -8,4 +8,7 @@ fp-info-cache
 # fabrication outputs (generated on demand)
 gerbers/
 *.zip
+# Python
+.venv/
 __pycache__/
+*.pyc

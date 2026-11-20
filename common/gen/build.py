@@ -1,6 +1,6 @@
 """Build one board project from its Design: schematic, routed board, project files, BOM/CPL, checks, renders.
 
-    build(design, out_dir)      called by pcb/<board>/gen_<board>.py
+    build(design, out_dir)      called by <board>/gen_<board>.py
 """
 import os
 import pickle

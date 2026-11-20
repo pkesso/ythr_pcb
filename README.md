@@ -1,9 +1,22 @@
 # PCBs — THR pedalboard
 
 Hardware spec for the JLCPCB build of the control surface. The prototype it
-replaces is described in [feather/doc/wiring.md](../feather/doc/wiring.md); pin
+replaces is described in the firmware repository (`feather/doc/wiring.md`); pin
 assignments and the 7-segment bit order stay as there, so the firmware does not
 change.
+
+## Setup
+
+KiCad 10 (`kicad-cli`) and Python 3 with the packages in `requirements.txt`:
+
+```bash
+python -m venv .venv
+.venv/Scripts/pip install -r requirements.txt
+.venv/Scripts/python effect/gen_effect.py                      # one board
+.venv/Scripts/python -m unittest discover -s tests -t tests    # all tests
+```
+
+How the boards are generated and tested: [common/README.md](common/README.md).
 
 ## Boards
 

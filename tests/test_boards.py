@@ -1,7 +1,7 @@
 """Board and fabrication tests for the generated pedal boards (no simulation).
 
-    .venv/Scripts/python -m unittest discover -s pcb/tests -v          # everything (~1-2 min: KiCad ERC/DRC)
-    .venv/Scripts/python -m unittest pcb.tests.test_boards.Fab -v      # one group
+    .venv/Scripts/python -m unittest discover -s tests -t tests -v            # everything (~40 s: KiCad ERC/DRC)
+    .venv/Scripts/python -m unittest discover -s tests -t tests -k Fab -v     # one group
 
 Groups: Checks (KiCad ERC / DRC with schematic parity), Regenerate (the generators reproduce the committed files),
 Fab (JLCPCB manufacturing limits), Mechanics (sizes, knob grid, holes, connector edge, what sits on top),
@@ -17,7 +17,7 @@ import warnings
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from boardfile import BOARDS, PCB, Board, design, path, read_csv, OX, OY  # noqa: E402
 
-import kicad_checks  # noqa: E402  (pcb/tools, on sys.path via boardfile)
+import kicad_checks  # noqa: E402  (tools/, on sys.path via boardfile)
 from kicad_gen import kid  # noqa: E402
 from gen.build import build  # noqa: E402
 from gen.parts import CATALOG  # noqa: E402
@@ -29,7 +29,7 @@ JLC = dict(track=0.127, via_drill=0.3, via_diameter=0.45, via_annular=0.13, pth_
            npth_drill=0.5, silk_height=1.0, silk_thickness=0.15)
 PEDAL_SIZE = (50.0, 65.0)
 SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (60.0, 116.0)}
-# boards cut to an enclosure template (pcb/common/templates): parts and copper stay inside its outline
+# boards cut to an enclosure template (common/templates): parts and copper stay inside its outline
 OUTLINES = {"gate_comp": "Type_Z-77_1590N1"}
 # pedal encoder squares other than the default 28 mm one at (11..39, 20..48)
 ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)]}       # 41 mm square

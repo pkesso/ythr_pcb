@@ -1,4 +1,4 @@
-"""Board outlines from enclosure templates (pcb/common/templates/<name>.kicad_pcb, copied from the templates the
+"""Board outlines from enclosure templates (common/templates/<name>.kicad_pcb, copied from the templates the
 enclosures are drawn in; the outline is kept as it is).
 
 The template's Edge.Cuts items (lines, arcs, circles) are moved so that the outline's top-left corner is the board

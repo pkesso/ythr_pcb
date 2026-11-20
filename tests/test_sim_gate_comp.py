@@ -1,7 +1,7 @@
 """Circuit simulation (ngspice from KiCad) of the Gate + Comp board's input filters, built from the board's design
 (gen_gate_comp.design(): part values and nets), with the expected values calculated from those parts.
 
-    .venv/Scripts/python -m unittest discover -s pcb/tests -p "test_sim*" -v
+    .venv/Scripts/python -m unittest discover -s tests -t tests -p "test_sim*" -v
 
 MCP23017 inputs (datasheet DS20001952C, D031 / D041 / D070): GPIO are Schmitt-trigger inputs, VIL <= 0.2 VDD,
 VIH >= 0.8 VDD; the weak pull-up (GPPU, which the firmware enables on inputs) sources 40-115 uA at 5 V, modelled
@@ -16,7 +16,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from boardfile import BOARDS, design  # noqa: E402
-from ngspice import Ngspice  # noqa: E402  (pcb/tools, on sys.path via boardfile)
+from ngspice import Ngspice  # noqa: E402  (tools/, on sys.path via boardfile)
 
 VDD = 3.3
 VIL, VIH = 0.2 * VDD, 0.8 * VDD
