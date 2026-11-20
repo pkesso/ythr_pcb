@@ -14,6 +14,9 @@ Checks:
   erc       KiCad ERC has no errors
   drc       KiCad DRC has no errors (zones refilled in memory, schematic parity)
   assembly  JLCPCB BOM and CPL match the board: parts, values, LCSC numbers, position, side (and rotation)
+  rules     the skill's rules on the board: pads that cannot be right (SMD with a drill, through-hole without one,
+            an SMD package with only through-hole pads), GND on a local label, no 0201; warns about 0402 parts and
+            about references the last commit had and the board no longer has
 
 Files are found automatically: the only .kicad_sch / .kicad_pcb at the repository root (or --sch / --pcb), and the
 only CSV files anywhere in the repository, hidden directories aside, whose names contain BOM / CPL (or --bom / --cpl).
@@ -216,6 +219,77 @@ def check_assembly(ctx, files):
     return r
 
 
+# ---------------------------------------------------------------- the skill's rules on the board
+SMD_NAME = re.compile(r"SMD|SOT-?\d|SOD-?\d|SOIC|SSOP|TSSOP|MSOP|[VWUX]?QFN|[VWUX]?DFN|VSON|WSON|QFP|BGA|"
+                      r"_\d{4}_\d{4}Metric", re.I)
+SIZE_0201 = re.compile(r"(?<!\d)0201(?!\d)|0603Metric", re.I)  # 0603Metric is 0201 imperial
+SIZE_0402 = re.compile(r"(?<!\d)0402(?!\d)|1005Metric", re.I)
+LOCAL_GND = re.compile(r"^/(?:.*/)?GND$")
+
+
+def footprint_refs(board):
+    return {next((p[2] for p in kids(fp, "property") if p[1] == "Reference"), "?"): fp
+            for fp in kids(board, "footprint")}
+
+
+def board_rules(text, head_text=None):
+    """The skill's rules that can be read off the board file (`SKILL.md`, "Rules that save hours"; `pcb-design.md`):
+    errors for pads that cannot be right, a local GND net and 0201 parts; warnings for 0402 parts and references that
+    the last commit had and the board no longer has (unused parts are never removed unless the user asks)."""
+    r = Result()
+    board = sexpr(text)
+    small = []
+    for ref, fp in sorted(footprint_refs(board).items()):
+        name = fp[1]
+        pads = [p for p in kids(fp, "pad") if p[2] in ("smd", "thru_hole")]
+        for p in pads:
+            drill = kid(p, "drill")
+            size = kid(p, "size")
+            layers = " ".join(kid(p, "layers")[1:]) if kid(p, "layers") else ""
+            if p[2] == "smd" and drill:
+                r.errors.append(f"{ref} pad {p[1]}: SMD pad with a drill")
+            if p[2] == "smd" and "Cu" not in layers and p[1]:  # unnumbered paste-only pads are paste windows
+                r.errors.append(f"{ref} pad {p[1]}: SMD pad on no copper layer ({layers})")
+            if p[2] == "thru_hole":
+                d = [float(x) for x in (drill or [])[1:] if isinstance(x, str) and re.match(r"^[\d.]+$", x)]
+                if not d or min(d) <= 0:
+                    r.errors.append(f"{ref} pad {p[1]}: through-hole pad without a drill")
+                elif size and min(d) >= min(float(size[1]), float(size[2])):
+                    r.errors.append(f"{ref} pad {p[1]}: drill {min(d):g} mm not smaller than the pad "
+                                    f"{float(size[1]):g} x {float(size[2]):g} mm")
+        if pads and SMD_NAME.search(name) and not any(p[2] == "smd" for p in pads):
+            r.errors.append(f"{ref} ({name}): an SMD package with only through-hole pads - a footprint generator that "
+                            "writes every pad as thru_hole")
+        if SIZE_0201.search(name):
+            r.errors.append(f"{ref} ({name}): 0201 parts are never used (pcb-design.md)")
+        elif SIZE_0402.search(name):
+            small.append(ref)
+    pad_nets = {n[-1] for fp in kids(board, "footprint") for p in kids(fp, "pad") for n in kids(p, "net") if len(n) > 1}
+    nets = sorted({n[1] for n in kids(board, "net") if len(n) > 1} | pad_nets)
+    r.errors += [f"net {n}: ground on a local label; GND must be the global net (footprints-and-parity.md)"
+                 for n in nets if isinstance(n, str) and LOCAL_GND.match(n)]
+    if small:
+        r.warnings.append(f"0402 (only where space forces it): {', '.join(small)}")
+    if head_text:
+        gone = sorted(set(footprint_refs(sexpr(head_text))) - set(footprint_refs(board)), key=_ref_key)
+        if gone:
+            r.warnings.append(f"removed since the last commit: {', '.join(gone)} - unused parts stay unless the user "
+                              "asked to remove them")
+    return r
+
+
+def _ref_key(ref):
+    return re.sub(r"\d+", "", ref), int(re.sub(r"\D", "", ref) or 0)
+
+
+def check_rules(ctx, files):
+    if not ctx.pcb:
+        return _skip("no board")
+    rel = os.path.relpath(ctx.pcb, ctx.root).replace(os.sep, "/")
+    head = subprocess.run(["git", "show", f"HEAD:{rel}"], cwd=ctx.root, capture_output=True, encoding="utf-8")
+    return board_rules(open(ctx.pcb, encoding="utf-8").read(), head.stdout if head.returncode == 0 else None)
+
+
 # ---------------------------------------------------------------- main
 CHECKS = {  # name -> (function, which changed files make it relevant)
     "format": (check_format, lambda f: f.endswith(KICAD_FILES)),
@@ -225,6 +299,7 @@ CHECKS = {  # name -> (function, which changed files make it relevant)
     "erc": (check_erc, lambda f: f.endswith((".kicad_sch", ".kicad_sym", ".kicad_pro"))),
     "drc": (check_drc, lambda f: f.endswith((".kicad_pcb", ".kicad_sch", ".kicad_mod", ".kicad_pro"))),
     "assembly": (check_assembly, lambda f: f.endswith((".kicad_pcb", ".csv"))),
+    "rules": (check_rules, lambda f: f.endswith(".kicad_pcb")),
 }
 
 

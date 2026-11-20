@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "py=\"$CLAUDE_PROJECT_DIR/.venv/Scripts/python.exe\"; [ -x \"$py\" ] || py=\"$CLAUDE_PROJECT_DIR/.venv/bin/python\"; [ -x \"$py\" ] || exit 0; exec \"$py\" \"$CLAUDE_PROJECT_DIR/tools/guard_shell.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

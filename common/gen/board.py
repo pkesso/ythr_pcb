@@ -134,7 +134,7 @@ class Board:
                 self.silk_segs += [("F", a, b), ("B", a, b)]
 
     def kname(self, net):
-        return net if net.startswith("unconnected-") else "/" + net
+        return net if net.startswith("unconnected-") or net in self.d.global_nets else "/" + net
 
     def _collect(self, p):
         fp = self.fps[p.cat["footprint"]]
@@ -527,6 +527,16 @@ class Board:
                            f'(name "beyond rim") (hatch edge 0.5) (connect_pads (clearance 0)) (min_thickness 0.25) '
                            f'(filled_areas_thickness no) (keepout (tracks not_allowed) (vias not_allowed) '
                            f'(pads allowed) (copperpour not_allowed) (footprints allowed)) '
+                           f'(fill (thermal_gap 0.5) (thermal_bridge_width 0.5)) (polygon (pts {pts})))')
+        if d.router == "freerouting":
+            # the keep-out circles (a footswitch's nut area) as rule areas: Freerouting sees only what is on the board
+            for k, (cx, cy, rr) in enumerate(d.keep_circles):
+                pts = " ".join(f"(xy {fx(cx + rr * math.cos(t * math.pi / 32))} {fy(cy + rr * math.sin(t * math.pi / 32))})"
+                               for t in range(64))
+                out.append(f'(zone (net 0) (net_name "") (layers "F.Cu" "B.Cu") (uuid {ids.q("keep_circle", k)}) '
+                           f'(name "keep out") (hatch edge 0.5) (connect_pads (clearance 0)) (min_thickness 0.25) '
+                           f'(filled_areas_thickness no) (keepout (tracks not_allowed) (vias not_allowed) '
+                           f'(pads allowed) (copperpour allowed) (footprints allowed)) '
                            f'(fill (thermal_gap 0.5) (thermal_bridge_width 0.5)) (polygon (pts {pts})))')
         out.append(")")
         with open(path, "w", encoding="utf-8", newline="\n") as fh:

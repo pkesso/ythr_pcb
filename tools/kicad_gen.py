@@ -9,6 +9,7 @@
 - board_footprint_items: a library footprint's items as KiCad stores them inside a board footprint (mirrored for the
   bottom side, absolute pad/text angles, keyed UUIDs). Copying the library footprint whole keeps KiCad's
   lib_footprint_mismatch check at zero.
+- locked_track / locked_via: tracks the generator lays itself (a pedal's bypass path) and freeroute.py keeps.
 - stable_library_uuids: after `kicad-cli fp upgrade` of a generated or copied .pretty, replace the random UUIDs KiCad
   gave to items without one (library properties) by keyed ones, so rebuilding the library gives identical files.
 """
@@ -91,6 +92,30 @@ def f(v):
     123.457."""
     s = f"{v:.4f}".rstrip("0").rstrip(".")
     return "0" if s in ("-0", "") else s
+
+
+# ---------------------------------------------------------------- tracks laid by the generator
+def locked_track(points, width, layer, net, uuids):
+    """Board text for a track the generator lays itself and the router must keep (a pedal's bypass path, jack -
+    footswitch - jack): one locked segment per pair of points, on one layer, UUIDs keyed by geometry. freeroute.py
+    keeps locked tracks and vias, and Freerouting routes around them. Lay each as a chain from pad to pad: Freerouting
+    does not join locked tracks that meet in a T, so a branch starts at a pad, not in the middle of another track.
+
+        text += locked_track([(130, 146.25), (130, 100), (187.5, 72.25)], 0.5, "F.Cu", "/JACK_IN", ids)
+    """
+    out = []
+    for (x0, y0), (x1, y1) in zip(points, points[1:]):
+        out.append(f'\t(segment\n\t\t(start {f(x0)} {f(y0)})\n\t\t(end {f(x1)} {f(y1)})\n\t\t(width {f(width)})\n'
+                   f'\t\t(locked yes)\n\t\t(layer {q(layer)})\n\t\t(net {q(net)})\n'
+                   f'\t\t(uuid {uuids.q("segment", layer, f(x0), f(y0), f(x1), f(y1))})\n\t)\n')
+    return "".join(out)
+
+
+def locked_via(x, y, diameter, drill, net, uuids):
+    """Board text for a locked through via, where a locked_track changes layer."""
+    return (f'\t(via\n\t\t(at {f(x)} {f(y)})\n\t\t(size {f(diameter)})\n\t\t(drill {f(drill)})\n'
+            f'\t\t(locked yes)\n\t\t(layers "F.Cu" "B.Cu")\n\t\t(net {q(net)})\n'
+            f'\t\t(uuid {uuids.q("via", f(x), f(y))})\n\t)\n')
 
 
 # ---------------------------------------------------------------- layers

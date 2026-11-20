@@ -66,6 +66,9 @@ def main():
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)  # seen live when redirected
 
+    if not args.json:
+        what = "ERC" if args.check == "erc" else "DRC" + ("" if args.no_parity else " with schematic parity")
+        print(f"{what} of {os.path.basename(args.file)} by kicad-cli...")
     try:
         kicad_cli.ensure_ready()
         items = erc(args.file) if args.check == "erc" else drc(args.file, parity=not args.no_parity)

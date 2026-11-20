@@ -31,6 +31,8 @@ def design():
     d.mask = "Yellow"
     d.rim = True                         # the template's rim along the edge, both sides
     d.jlc_rules = True
+    d.global_nets = {GND}                # ground is the global net GND (a global label), not /GND
+    d.router = "freerouting"             # routed by tools/freeroute.py, cached in routing.pkl
     used = {}
     b = bus(d, buffer=True, ferrite=True)
     encs = []

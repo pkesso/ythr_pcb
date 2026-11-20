@@ -17,3 +17,18 @@
     (constraint hole_size (min 1mm))
     (condition "A.Pad_Type == 'NPTH, mechanical' && A.Hole_Size_X != A.Hole_Size_Y"))
 # end jlcpcb_rules.py
+
+# begin pcb skill layout rules
+(rule "audio_from_edge"
+    (severity warning)
+    (constraint edge_clearance (min 3mm))
+    (condition "A.hasNetclass('Audio') && (A.Type == 'Track' || A.Type == 'Via') && !A.intersectsCourtyard('J*')"))
+(rule "audio_from_noise"
+    (severity warning)
+    (constraint clearance (min 1mm))
+    (condition "A.hasNetclass('Audio') && B.hasNetclass('Noisy') && (A.Type != 'Pad' || B.Type != 'Pad')"))
+(rule "hiz_no_via"
+    (severity warning)
+    (constraint disallow via)
+    (condition "A.hasNetclass('HiZ')"))
+# end pcb skill layout rules

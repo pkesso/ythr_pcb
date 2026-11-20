@@ -39,6 +39,11 @@ TOP_THT_ALLOWED = ("ENC", "J", "H", "DS")    # on the top side (6 mm under the p
 #                                              and the 7-segment digits (8 mm: their faces reach the panel window)
 
 
+def gnd(d):
+    """The board's ground net as KiCad names it: GND on a global label (Design.global_nets), else /GND."""
+    return "GND" if "GND" in design(d).global_nets else "/GND"
+
+
 def _md5(file):
     with open(file, "rb") as fh:
         return hashlib.md5(fh.read()).hexdigest()
@@ -183,7 +188,7 @@ class Mechanics(unittest.TestCase):
                 dmin = min(math.dist(a, b_) for i, a in enumerate(pts) for b_ in pts[i + 1:])
                 self.assertGreaterEqual(dmin, 19.0)
                 for f in encs:
-                    self.assertEqual({"/GND"}, {p.net for p in f.pads if p.num == "MP"}, f.ref)
+                    self.assertEqual({gnd(d)}, {p.net for p in f.pads if p.num == "MP"}, f.ref)
                     self.assertEqual("F.Cu", f.layer, f.ref)
 
     def test_rj45_at_top_edge(self):
@@ -265,9 +270,9 @@ class GateComp(unittest.TestCase):
         self.assertEqual(gen_gate_comp.REV, self.des.rev)
 
     def test_test_points(self):
-        """Test pads on the bottom side for GND, 3V3, the card-side I2C, INT and RESET."""
+        """Test pads on the bottom side for GND (the global net), 3V3, the card-side I2C, INT and RESET."""
         tps = {p.net for f in self.b.footprints if f.ref.startswith("TP") for p in f.pads}
-        self.assertEqual({"/GND", "/+3V3", "/SCL_L", "/SDA_L", "/INT", "/RESET"}, tps)
+        self.assertEqual({"GND", "/+3V3", "/SCL_L", "/SDA_L", "/INT", "/RESET"}, tps)
         self.assertEqual({"B.Cu"}, {f.layer for f in self.b.footprints if f.ref.startswith("TP")})
 
     def test_jlcpcb_rules(self):

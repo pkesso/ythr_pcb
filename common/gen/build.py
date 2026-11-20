@@ -47,6 +47,8 @@ def build(design, out_dir, checks=True, render=True, reroute=False):
     print(f"[{name}] schematic written")
 
     b = Board(design, out_dir, root, netlist=schematic_nets(sch))
+    if design.router == "freerouting":
+        return _build_freerouted(design, b, out_dir, sch, pcb, t0, checks, render, reroute)
     # routing result cache: keyed by the placement + nets, so an unchanged design is not rerouted
     key = repr(sorted((p.ref, p.kind, p.x, p.y, p.rot, p.side, sorted(p.pins.items(), key=lambda kv: kv[0]),)
                       for p in design.parts.values())) + repr(design.keepouts) + repr(design.keep_circles) + repr((design.width, design.height)) + (repr(design.outline.items) if design.outline else "")
@@ -76,6 +78,55 @@ def build(design, out_dir, checks=True, render=True, reroute=False):
         print(f"[{name}] labels without room on silkscreen (moved to Fab): {[(m[0], m[1]) for m in missing]}")
     b.write(pcb)
     kicad_cli.upgrade("pcb", pcb)
+    return _finish(design, b, out_dir, sch, pcb, t0, checks, render, missing)
+
+
+def _build_freerouted(design, b, out_dir, sch, pcb, t0, checks, render, reroute):
+    """Board written without tracks, then routed by tools/freeroute.py (Freerouting; it also stitches the GND zones
+    and keys the new UUIDs by geometry). The routed file is cached in routing.pkl, keyed by the unrouted board's bytes
+    and the options, so an unchanged board is not routed again and regenerates byte-identically."""
+    import hashlib
+    from .router import Router
+    name = design.name
+    r = Router.__new__(Router)
+    r.segments, r.vias = [], []
+    b.router, b.failed = r, []
+    missing = b.place_labels()
+    if missing:
+        print(f"[{name}] labels without room on silkscreen (moved to Fab): {[(m[0], m[1]) for m in missing]}")
+    b.write(pcb)
+    kicad_cli.upgrade("pcb", pcb)
+    args = ["--silk-keepouts"] * bool(design.outline and design.rim) + list(design.freeroute_args)
+    with open(pcb, "rb") as fh:
+        key = hashlib.sha256(fh.read() + repr(args).encode()).hexdigest()
+    cache = os.path.join(out_dir, "routing.pkl")
+    data = {}
+    if os.path.exists(cache) and not reroute:
+        with open(cache, "rb") as fh:
+            data = pickle.load(fh)
+    if data.get("freerouting") == key:
+        with open(pcb, "wb") as fh:
+            fh.write(data["board"])
+        print(f"[{name}] routing taken from routing.pkl (Freerouting)")
+    else:
+        print(f"[{name}] routing with Freerouting ({' '.join(args) or 'default options'})")
+        cmd = [sys.executable, "-u", os.path.join(PCB, "tools", "freeroute.py"), pcb, *args]
+        code = kicad_cli.run_process(cmd, timeout=1800, echo="  freeroute: ", encoding="utf-8",
+                                     errors="replace").returncode
+        if code:
+            b.failed = ["freeroute.py exit code %d" % code]
+        else:
+            with open(pcb, "rb") as fh:
+                routed = fh.read()
+            with open(cache, "wb") as fh:
+                pickle.dump({"freerouting": key, "board": routed}, fh)
+    if b.failed:
+        print(f"[{name}] ROUTING FAILED: {b.failed}")
+    return _finish(design, b, out_dir, sch, pcb, t0, checks, render, missing)
+
+
+def _finish(design, b, out_dir, sch, pcb, t0, checks, render, missing):
+    name = design.name
     b.assembly(os.path.join(out_dir, name + "_bom.csv"), os.path.join(out_dir, name + "_cpl.csv"))
     print(f"[{name}] board written ({time.time() - t0:.0f} s)")
     result = {"failed": b.failed, "labels_missing": missing}

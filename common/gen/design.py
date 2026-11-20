@@ -52,6 +52,9 @@ class Design:
         self.jlc_rules = False      # put JLCPCB's limits into the project (tools/jlcpcb_rules.py)
         self.rim = False            # print the template's rim (Outline.frame) on the silkscreen of both sides
         self.silk = None            # silkscreen colour (stackup); None = white, black on a white board
+        self.global_nets = set()    # nets on global labels, named by KiCad without the sheet's "/" (e.g. {"GND"})
+        self.router = "own"         # "own": gen.router, cached in routing.pkl; "freerouting": tools/freeroute.py
+        self.freeroute_args = []    # extra freeroute.py options (router = "freerouting")
 
     def use_outline(self, outline):
         """Take the board outline (and its size) from an enclosure template; its holes become router keep-outs."""

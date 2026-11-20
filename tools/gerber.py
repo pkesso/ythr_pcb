@@ -259,6 +259,7 @@ def main():
         kicad_cli.writable(out)  # before the DRC and the export, not after them
         kicad_cli.writable(unpacked, directory=True)
         kicad_cli.ensure_ready()
+        print(f"Gerbers of {os.path.basename(pcb)}: " + ("export, check" if args.no_drc else "DRC, export, check"))
         if args.no_drc:
             print("DRC SKIPPED: do not order from this output")
         else:
@@ -267,6 +268,7 @@ def main():
                 print("\n".join(below))
                 print("no Gerbers written: DRC would not check JLCPCB's limits; run jlcpcb_rules.py on the project first")
                 return 1
+            print("[1/3] DRC with zones refilled")
             bad = [v for v in kicad_checks.drc(pcb) if v["severity"] == "error"]
             if bad:
                 for (_, typ), vs in kicad_checks.summarise(bad).items():
@@ -275,8 +277,10 @@ def main():
                 return 1
         e = expected(pcb)
         with tempfile.TemporaryDirectory() as tmp:
+            print(f"[2/3] export: {len(e.copper)} copper layers, drill files")
             export(pcb, tmp, e.copper)
             undate(tmp)
+            print("[3/3] check the files: layers complete, outline closed, holes against the board")
             errors = validate(tmp, stem, e)  # the files as they are published
             if errors:
                 print("\n".join(errors))

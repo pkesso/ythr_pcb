@@ -30,6 +30,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 
 MIN_MAJOR = 10
 CLI = "kicad-cli.exe" if os.name == "nt" else "kicad-cli"
@@ -91,27 +92,63 @@ def kill_tree(pid):
             pass
 
 
-def run_process(cmd, timeout, shell=False, echo=None, **kw):
+HEARTBEAT = 30  # s without a line of output after which a waiting script says it is still waiting, and on what
+
+
+def short_name(cmd):
+    """The program and its first plain arguments, for progress lines: 'kicad-cli pcb render'."""
+    parts = cmd.split() if isinstance(cmd, str) else [str(c) for c in cmd]
+    words = [os.path.splitext(os.path.basename(parts[0]))[0]] if parts else ["?"]
+    for a in parts[1:]:
+        if a.startswith("-") or os.sep in a or "/" in a or "." in a or len(words) == 3:
+            break
+        words.append(a)
+    return " ".join(words)
+
+
+def run_process(cmd, timeout, shell=False, echo=None, echo_filter=None, heartbeat=True, **kw):
     """subprocess.run for every external program the scripts start: stdin closed (nothing can wait for input), and on
     timeout the whole process tree is killed, not only the shell, before TimeoutError is raised. kw goes to Popen
     (encoding, errors, cwd, env).
 
     echo: a prefix (e.g. "  freerouting: "), to also print the program's output line by line as it comes, so a long
-    run can be watched live; the output is captured all the same. Text mode only (pass encoding)."""
+    run can be watched live; the output is captured all the same. Text mode only (pass encoding). echo_filter: a
+    function from a line to the text to show, or None to leave the line out (it is still captured).
+
+    heartbeat: after HEARTBEAT seconds with nothing printed, a line says the program is still running and for how
+    long, and again every HEARTBEAT seconds, so a long wait is never taken for a hang."""
     group = {"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
     env = kw.pop("env", None) or os.environ
     env = {**env, "PYTHONUNBUFFERED": "1"}  # a Python child shows its output as it goes, not when it ends
     p = subprocess.Popen(cmd, shell=shell, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                          env=env, **group, **kw)
     what = cmd if isinstance(cmd, str) else " ".join(map(str, cmd))
+    start = time.monotonic()
+    deadline = start + timeout
+    last = [start]  # when the last line was shown
+
+    def beat():
+        now = time.monotonic()
+        if heartbeat and now - last[0] >= HEARTBEAT - 0.5:
+            print(f"  ... {short_name(cmd)} still running, {now - start:.0f} s", flush=True)
+            last[0] = now
+
+    def timed_out():
+        kill_tree(p.pid)
+        raise TimeoutError(f"{what} did not finish in {timeout:g} s")
+
     if echo is None:
-        try:
-            out, err = p.communicate(timeout=timeout)
-        except subprocess.TimeoutExpired:
-            kill_tree(p.pid)
-            p.communicate()
-            raise TimeoutError(f"{what} did not finish in {timeout:g} s")
-        return subprocess.CompletedProcess(cmd, p.returncode, out, err)
+        while True:
+            try:
+                out, err = p.communicate(timeout=max(0.01, min(HEARTBEAT, deadline - time.monotonic())))
+                return subprocess.CompletedProcess(cmd, p.returncode, out, err)
+            except subprocess.TimeoutExpired:
+                if time.monotonic() >= deadline:
+                    try:
+                        timed_out()
+                    finally:
+                        p.communicate()
+                beat()
 
     import threading
     chunks = {"out": [], "err": []}
@@ -119,18 +156,27 @@ def run_process(cmd, timeout, shell=False, echo=None, **kw):
     def pump(stream, key):
         for line in stream:
             chunks[key].append(line)
-            print(echo + line.rstrip("\r\n"), flush=True)
+            shown = echo_filter(line.rstrip("\r\n")) if echo_filter else line.rstrip("\r\n")
+            if shown is not None:
+                print(echo + shown, flush=True)
+                last[0] = time.monotonic()
 
     readers = [threading.Thread(target=pump, args=(s, k), daemon=True)
                for s, k in ((p.stdout, "out"), (p.stderr, "err"))]
     for t in readers:
         t.start()
     try:
-        p.wait(timeout=timeout)
-    except subprocess.TimeoutExpired:
-        kill_tree(p.pid)
-        p.wait()
-        raise TimeoutError(f"{what} did not finish in {timeout:g} s")
+        while True:
+            try:
+                p.wait(timeout=max(0.01, min(5, deadline - time.monotonic())))
+                break
+            except subprocess.TimeoutExpired:
+                if time.monotonic() >= deadline:
+                    try:
+                        timed_out()
+                    finally:
+                        p.wait()
+                beat()
     finally:
         for t in readers:
             t.join(5)  # a grandchild still holding the pipe must not keep us here
@@ -171,8 +217,10 @@ def add_priority_argument(ap):
 def writable(path, directory=False):
     """Make sure a result can be saved before the long work that produces it: create its directory (or the directory
     itself with directory=True) and try writing there; an existing file must be openable for writing (not read-only,
-    not locked by KiCad or a viewer). The file itself is not changed. Raises OSError with the reason; returns path."""
+    not locked by KiCad or a viewer). The file itself is not changed. Raises OSError with the reason; returns path.
+    An existing directory is checked as a directory without directory=True (opening it as a file failed)."""
     path = os.path.abspath(path)
+    directory = directory or os.path.isdir(path)
     d = path if directory else os.path.dirname(path)
     os.makedirs(d, exist_ok=True)
     import tempfile
