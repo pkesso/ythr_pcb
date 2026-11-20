@@ -14,14 +14,12 @@ C8,0.80,0.00,model
 C9,0.80,0.00,model
 D1,1.10,0.00,model
 D2,1.10,0.00,model
-ENC1,6.00,3.00,given
-ENC2,6.00,3.00,given
-ENC3,6.00,3.00,given
-ENC4,6.00,3.00,given
+ENC1,10.43,3.50,"model, cut at the panel"
+ENC2,10.43,3.50,"model, cut at the panel"
+ENC3,10.43,3.50,"model, cut at the panel"
+ENC4,10.43,3.50,"model, cut at the panel"
 FB1,0.80,0.00,model
-H1,0.00,0.00,given
-H2,0.00,0.00,given
-J1,1.50,12.60,given
+J1,3.00,13.10,model
 J2,0.00,0.00,given
 J3,0.00,0.00,given
 J4,0.00,0.00,given
@@ -35,6 +33,8 @@ JP6,0.00,0.00,given
 R1,0.45,0.00,model
 R10,0.45,0.00,model
 R11,0.45,0.00,model
+R12,0.45,0.00,model
+R13,0.45,0.00,model
 R2,0.45,0.00,model
 R3,0.45,0.00,model
 R4,0.45,0.00,model
@@ -47,6 +47,8 @@ RN1,0.50,0.00,model
 RN2,0.50,0.00,model
 RN3,0.50,0.00,model
 RN4,0.50,0.00,model
+SW1,10.43,5.00,"model, cut at the panel"
+SW2,10.43,5.00,"model, cut at the panel"
 TP1,0.00,0.00,given
 TP2,0.00,0.00,given
 TP3,0.00,0.00,given

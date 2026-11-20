@@ -1,0 +1,7 @@
+ref,mount_surface,bushing_end,gap_under_panel,thread_outside,source
+ENC1,6.50,11.50,3.93,-0.93,part.json (RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx)
+ENC2,6.50,11.50,3.93,-0.93,part.json (RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx)
+ENC3,6.50,11.50,3.93,-0.93,part.json (RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx)
+ENC4,6.50,11.50,3.93,-0.93,part.json (RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx)
+SW1,10.43,21.81,0.00,9.38,part.json (PushButton_Q27_15-32UNS_SPDT_SolderLug)
+SW2,10.43,21.81,0.00,9.38,part.json (PushButton_Q27_15-32UNS_SPDT_SolderLug)

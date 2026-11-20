@@ -51,6 +51,7 @@ class Design:
         self.outline = None         # gen.outline.Outline of an enclosure template; None = plain width x height
         self.jlc_rules = False      # put JLCPCB's limits into the project (tools/jlcpcb_rules.py)
         self.rim = False            # print the template's rim (Outline.frame) on the silkscreen of both sides
+        self.rim_width = 0.15       # its line width, mm (JLCPCB's minimum silk line 0.15)
         self.silk = None            # silkscreen colour (stackup); None = white, black on a white board
         self.global_nets = set()    # nets on global labels, named by KiCad without the sheet's "/" (e.g. {"GND"})
         self.router = "own"         # "own": gen.router, cached in routing.pkl; "freerouting": tools/freeroute.py
@@ -86,22 +87,31 @@ class Design:
 
 
 # ---------------------------------------------------------------- blocks
-def bus(d, buffer=False, ferrite=False):
+def bus(d, buffer=False, ferrite=False, leds=False):
     """8P8C bus jack (pinout: README.md, T568B wire order), TVS, bulk capacitor, optional I2C pull-ups.
+
+    leds: the shielded jack with two LEDs (RJ45_LED), shield on GND. Left LED (seen from the front, yellow on the
+    user's jack): +3V3 - 1k - anode, cathode on INT, so it lights while a chip pulls INT low. Right LED (green):
+    anode on +3V3, cathode - 1k - GND, lit while the pedal has power. About 1.2 mA each.
 
     ferrite: the jack's VCC (net VBUS, clamped by the TVS) reaches the board's +3V3 through a ferrite bead; the bulk
     capacitor sits behind it. buffer: a PCA9511A hot-swap buffer between the bus (SCL / SDA, the jack side) and the
     board (SCL_L / SDA_L, 10k pull-ups to +3V3 on this side, as in the datasheet's application); ENABLE tied to VCC,
     READY unused. The MCP23017 then hangs on SCL_L / SDA_L (see b["scl"], b["sda"])."""
     vbus = "VBUS" if ferrite else V33
-    j = d.add("J", "RJ45", {"1": GND, "2": "SCL", "3": GND, "4": "SDA", "5": GND, "6": vbus, "7": GND, "8": "INT"},
-              "bus")
+    pins = {"1": GND, "2": "SCL", "3": GND, "4": "SDA", "5": GND, "6": vbus, "7": GND, "8": "INT"}
+    if leds:
+        pins.update({"9": "INT", "10": "LED_INT_A", "11": "LED_PWR_K", "12": V33, "SH": GND})
+    j = d.add("J", "RJ45_LED" if leds else "RJ45", pins, "bus")
     tvs = d.add("U", "SRV05-4", {"1": "SCL", "2": GND, "3": "SDA", "4": "INT", "5": vbus, "6": None}, "bus")
     cb = d.add("C", "C10u", {"1": V33, "2": GND}, "bus")
     jp = d.add("JP", "SJ", {"1": V33, "2": "I2C_PU"}, "bus", silk="PU")
     rs = d.add("R", "R10k", {"1": "I2C_PU", "2": "SCL"}, "bus")
     rd = d.add("R", "R10k", {"1": "I2C_PU", "2": "SDA"}, "bus")
     b = dict(j=j, tvs=tvs, cbulk=cb, jp=jp, rscl=rs, rsda=rd, scl="SCL", sda="SDA")
+    if leds:
+        b["rled_int"] = d.add("R", "R1k", {"1": V33, "2": "LED_INT_A"}, "bus")
+        b["rled_pwr"] = d.add("R", "R1k", {"1": "LED_PWR_K", "2": GND}, "bus")
     if ferrite:
         b["fb"] = d.add("FB", "FB600", {"1": vbus, "2": V33}, "bus")
     if buffer:

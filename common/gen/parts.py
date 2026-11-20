@@ -15,6 +15,12 @@ CATALOG = {
                 jlc="extended, THT"),
     "RJ45": dict(symbol="8P8C", footprint="RJ45_Ckmtw_R-RJ45R08P-A004_Horizontal", value="R-RJ45R08P-A004",
                  lcsc="C385834", datasheet="", jlc="extended, THT"),
+    # shielded, two LEDs (Ckmtw R-RJ45R08P-C004, LCSC C386759): soldered by hand, so not in the BOM (no cost counted)
+    "RJ45_LED": dict(symbol="8P8C_LED_Shielded", footprint="RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal",
+                     value="R-RJ45R08P-C004", lcsc=None, datasheet="LCSC C386759", bom=False),
+    # Dailywell Q27 (7MS7) momentary SPDT push button, soldered into the board by hand: 1 COMM, 2 NO, 3 NC
+    "Q27": dict(symbol="SW_SPDT_312", footprint="PushButton_Q27_15-32UNS_SPDT_SolderLug", value="Q27 (7MS7)",
+                lcsc=None, datasheet="", bom=False),
     "RN10k": dict(symbol="R_Pack04", footprint="R_Array_Convex_4x0603", value="4x10k", lcsc="C29718",
                   datasheet="", jlc="basic"),
     "R10k": dict(symbol="R", footprint="R_0603_1608Metric", value="10k", lcsc="C25804", datasheet="", jlc="basic"),

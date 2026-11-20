@@ -483,7 +483,8 @@ class Board:
             layers = [("Edge.Cuts", d.outline.items, "edge"), ("Dwgs.User", d.outline.drawings, "tpl")]
             if d.rim:               # the template's rim along the edge, on the silkscreen of both sides
                 layers += [("F.SilkS", d.outline.frame, "rimF"), ("B.SilkS", d.outline.frame, "rimB")]
-            width = {"edge": "0.05", "tpl": "0.1", "rimF": "0.15", "rimB": "0.15"}     # 0.15: JLCPCB's silk line
+            rim = f(d.rim_width)    # at least 0.15: JLCPCB's silk line
+            width = {"edge": "0.05", "tpl": "0.1", "rimF": rim, "rimB": rim}
             for layer, items, tag in layers:
                 for k, (kind, ps) in enumerate(items):
                     st = f'(stroke (width {width[tag]}) (type default))'

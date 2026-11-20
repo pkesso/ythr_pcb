@@ -1,0 +1,15 @@
+{
+  "PushButton_Q27_15-32UNS_SPDT_SolderLug": {
+    "PedalLib.3dshapes/PushButton_Q27_15-32UNS_SPDT_SolderLug.wrl": "d54cb8680072da283caf68eac0b6f227658ed9c5600720071ad52b3c18f0511f",
+    "PedalLib.pretty/PushButton_Q27_15-32UNS_SPDT_SolderLug.kicad_mod": "4a8dbf1d54eb19c5bfa7ae616d0097324242f453548d92b65d14b9d609d8a5a9"
+  },
+  "RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal": {
+    "PedalLib.3dshapes/RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal.wrl": "913a9bf7932e3b09fc229a10f84fd369e1d2f2abfcd601d71cca12b83544c781",
+    "PedalLib.pretty/RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal.kicad_mod": "e9b0a69d3ef22791aadde3d2902a21d313f868d57da24944a8a4ac5daea69a6c"
+  },
+  "RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx": {
+    "PedalLib.3dshapes/RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx.wrl": "ea42a309a602bb3fb9597e16bfb98765cd6d6a99a530545ec72363ebbbe04830",
+    "PedalLib.pretty/RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx.kicad_mod": "51a72c550397898fb71ae78f76d205aa31e1b4c4cb368caff80a211b94d43201"
+  },
+  "_model_path": "${KIPRJMOD}/../common/lib/PedalLib.3dshapes"
+}

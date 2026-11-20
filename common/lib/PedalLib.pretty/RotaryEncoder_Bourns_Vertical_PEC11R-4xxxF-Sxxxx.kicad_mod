@@ -3,12 +3,11 @@
 	(generator "pcbnew")
 	(generator_version "10.0")
 	(layer "F.Cu")
-	(descr "Bourns PEC11R-4xxxF-Sxxxx incremental encoder, vertical, 11 mm, with switch (land pattern from LCSC C143789)")
 	(tags "rotary encoder PEC11R EC11")
 	(property "Reference" "REF**"
-		(at 0 0 0)
+		(at 0 -9.65 0)
 		(layer "F.SilkS")
-		(uuid "ed3ad06a-7106-5f1a-9535-d01f2d4189fc")
+		(uuid "74fa608f-4408-5848-b51f-085094acc2f9")
 		(effects
 			(font
 				(size 1 1)
@@ -17,9 +16,9 @@
 		)
 	)
 	(property "Value" "RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
-		(at 0 0 0)
+		(at 0 9.65 0)
 		(layer "F.Fab")
-		(uuid "187ddbce-a56e-5a29-a0f8-31028652213a")
+		(uuid "74544628-4e77-5a9e-9be3-74becf516f1f")
 		(effects
 			(font
 				(size 1 1)
@@ -31,21 +30,23 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "01360aa6-7283-56c3-b914-b3b4dd607f98")
+		(uuid "0a2a6cc4-4378-5209-9da5-d99767935ca2")
 		(effects
 			(font
 				(size 1.27 1.27)
+				(thickness 0.1905)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "Bourns PEC11R-4xxxF-Sxxxx incremental encoder, vertical, push switch, M7 bushing (Bourns datasheet REV 04/26, recommended layout)"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "87984a0e-2a50-51b7-8888-223c5342a7a4")
+		(uuid "f9946f65-8866-5452-bce6-822cb60d875f")
 		(effects
 			(font
 				(size 1.27 1.27)
+				(thickness 0.1905)
 			)
 		)
 	)
@@ -61,7 +62,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "8c717d00-09ae-5273-a0f4-a38cc272e992")
+		(uuid "95abd4e2-f810-523a-8083-87d9d84d7992")
 	)
 	(fp_poly
 		(pts
@@ -73,7 +74,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "6dd0d1a1-61da-58ec-a05c-f0235af913c4")
+		(uuid "12b50f76-4874-5744-bb78-0cba656c0f5c")
 	)
 	(fp_poly
 		(pts
@@ -85,7 +86,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "47754731-7b72-5611-a679-fd5ed6928cbd")
+		(uuid "3912522a-be8b-5ec9-9860-db0893e1d066")
 	)
 	(fp_poly
 		(pts
@@ -97,13 +98,14 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "a7bb28f0-d369-544f-906a-4f4cb2081f81")
+		(uuid "99e4c1ed-85e1-5a09-867c-ebc1524d8f44")
 	)
 	(fp_poly
 		(pts
-			(xy -3.65 -8.4) (xy 3.65 -8.4) (xy 3.65 -6.95) (xy 6.5 -6.95) (xy 6.5 -2.4) (xy 7.15 -2.4) (xy 7.15 1.9)
-			(xy 6.5 1.9) (xy 6.5 6.95) (xy 3.65 6.95) (xy 3.65 8.4) (xy -3.65 8.4) (xy -3.65 6.95) (xy -6.5 6.95)
-			(xy -6.5 1.9) (xy -7.15 1.9) (xy -7.15 -2.4) (xy -6.5 -2.4) (xy -6.5 -6.95) (xy -3.65 -6.95)
+			(xy -3.65 -8.15) (xy 3.65 -8.15) (xy 3.65 -6.95) (xy 6.5 -6.95) (xy 6.5 -1.95) (xy 8.15 -1.95) (xy 8.15 1.95)
+			(xy 6.5 1.95) (xy 6.5 6.95) (xy 3.65 6.95) (xy 3.65 8.65) (xy -3.65 8.65) (xy -3.65 6.95) (xy -6.5 6.95)
+			(xy -6.5 1.95) (xy -8.15 1.95) (xy -8.15 -1.95) (xy -6.5 -1.95) (xy -6.5 -6.95) (xy -3.65 -6.95)
+			(xy -3.65 -8.15)
 		)
 		(stroke
 			(width 0.05)
@@ -111,7 +113,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "fce2af2b-233b-59c6-9854-02a1f8140a7b")
+		(uuid "d5fed1a6-0f3a-53d2-82c3-f224c909cb4b")
 	)
 	(fp_rect
 		(start -6.25 -6.7)
@@ -122,7 +124,7 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "e758ce28-beb3-5c41-8b6c-ea56f9102086")
+		(uuid "6d79467a-3a94-59f8-b767-8c349d4b141b")
 	)
 	(fp_circle
 		(center 0 0)
@@ -133,74 +135,74 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "bcf71cc0-a169-5332-bf34-1100300478ed")
-	)
-	(fp_text user "${REFERENCE}"
-		(at 0 0 0)
-		(layer "F.Fab")
-		(uuid "655a7117-5ba3-52ba-b040-51154cea37cd")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-		)
+		(uuid "fa2d249f-528d-556f-9b62-74a2f463a101")
 	)
 	(pad "A" thru_hole rect
-		(at -2.5 7.25)
+		(at -2.5 7.5)
 		(size 1.8 1.8)
-		(drill 1.2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "039461cf-d51b-59cf-bdb0-3a64eec330e2")
+		(uuid "3928c3b6-4930-5f9f-a4d6-7e7d32e1d4f4")
 	)
 	(pad "B" thru_hole circle
-		(at 2.5 7.25)
+		(at 2.5 7.5)
 		(size 1.8 1.8)
-		(drill 1.2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "0b981999-d14e-5617-948a-cca11cde2075")
+		(uuid "f0a3809a-c8cd-5f93-8afe-aa4149d4d789")
 	)
 	(pad "C" thru_hole circle
-		(at 0 7.25)
+		(at 0 7.5)
 		(size 1.8 1.8)
-		(drill 1.2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "9c78e1fd-65da-5a88-94e4-2da5f2dc7b01")
+		(uuid "ea943434-1c13-555d-8451-1491878a9c56")
 	)
 	(pad "MP" thru_hole oval
-		(at -5.7 -0.25)
-		(size 2.4 3.8)
-		(drill oval 1.4 2.8)
+		(at -6.6 0)
+		(size 2.6 3.4)
+		(drill oval 1.8 2.6)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "55e60d4c-095d-5682-aeb0-125de83863cb")
+		(uuid "521577b6-e453-5a77-973d-1fc72d200f3f")
 	)
 	(pad "MP" thru_hole oval
-		(at 5.7 -0.25)
-		(size 2.4 3.8)
-		(drill oval 1.4 2.8)
+		(at 6.6 0)
+		(size 2.6 3.4)
+		(drill oval 1.8 2.6)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "dfc50436-0ff3-54ec-8875-5bee69f28233")
+		(uuid "be2cf2ca-3b56-51d2-b631-71bbc7055467")
 	)
 	(pad "S1" thru_hole circle
-		(at -2.5 -7.25)
+		(at -2.5 -7)
 		(size 1.8 1.8)
-		(drill 1.2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "3a4021ee-6111-5270-945e-3fb3fe5b27d3")
+		(uuid "cbd3c21d-7b37-53bc-b2d7-763a3514406c")
 	)
 	(pad "S2" thru_hole circle
-		(at 2.5 -7.25)
+		(at 2.5 -7)
 		(size 1.8 1.8)
-		(drill 1.2)
+		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "e7f3bdfa-9111-5c15-8cb1-d1b6549aa062")
+		(uuid "785ec956-3d4d-5f50-a7f0-a9b4ddf3cd45")
 	)
 	(embedded_fonts no)
+	(model "${KIPRJMOD}/../common/lib/PedalLib.3dshapes/RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )

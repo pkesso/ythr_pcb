@@ -35,7 +35,8 @@ OUTLINES = {"gate_comp": "Type_Z-77_1590N1"}
 ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)]}       # 41 mm square
 # extended part numbers per design (each costs a feeder fee); others 4. Main: + the display, blue and orange LEDs
 MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5}       # Gate + Comp: + the PCA9511A bus buffer
-TOP_THT_ALLOWED = ("ENC", "J", "H", "DS")    # on the top side (6 mm under the panel) only encoders, wire pads, holes
+TOP_THT_ALLOWED = ("ENC", "J", "H", "DS", "SW")  # on the top side only encoders, wire pads, holes, the 7-segment
+#                                                   digits and Gate + Comp's Q27 buttons (the lid rests on them)
 #                                              and the 7-segment digits (8 mm: their faces reach the panel window)
 
 
@@ -254,11 +255,38 @@ class GateComp(unittest.TestCase):
         rows = [k * step for k in range(int(round(tpl.height / step)) + 1)]
         self.assertEqual([], [y for y in rows if tpl.span(min(max(y, 1e-6), tpl.height - 1e-6)) is None])
 
-    def test_footswitch_holes(self):
-        """12.5 mm footswitch holes at (16, 96) and (44, 96) with the 20 mm nut area free of parts (courtyard)."""
-        holes = sorted((round(p.x, 3), round(p.y, 3), p.drill) for f in self.b.footprints for p in f.pads
-                       if p.kind == "np_thru_hole" and f.ref.startswith("H"))
-        self.assertEqual([(16.0, 96.0, 12.5), (44.0, 96.0, 12.5)], holes)
+    def test_buttons(self):
+        """Q27 push buttons on the top side at (16, 96) and (44, 96), COMM on GND and NO on the footswitch wire pad's
+        net (before the debounce), NC open; GATE / COMPRESSOR under them as large as the name on the back."""
+        q27 = sorted((f for f in self.b.footprints if "Q27" in f.lib_id), key=lambda f: f.x)
+        self.assertEqual([(16.0, 96.0), (44.0, 96.0)], [(round(f.x, 3), round(f.y, 3)) for f in q27])
+        self.assertEqual({"F.Cu"}, {f.layer for f in q27})
+        wires = {p.net for f in self.b.footprints if "WirePads" in f.lib_id for p in f.pads if p.num == "1"}
+        for f in q27:
+            pads = {p.num: p.net for p in f.pads}
+            self.assertEqual("GND", pads["1"], f.ref)
+            self.assertIn(pads["2"], wires, f.ref)
+            self.assertTrue(pads["3"].startswith("unconnected-"), f.ref)
+        texts = {(t, round(h, 2)) for t, layer, (h, _) in self.b.texts if layer == "F.SilkS"}
+        name_h = next(round(h, 2) for t, layer, (h, _) in self.b.texts if layer == "B.SilkS" and "GATE-COMP" in t)
+        self.assertIn(("GATE", name_h), texts)
+        self.assertIn(("COMPRESSOR", name_h), texts)
+        self.assertEqual([], [f.ref for f in self.b.footprints if f.ref.startswith("H") and f.y > 80])
+
+    def test_jack_leds(self):
+        """The shielded RJ45 with LEDs: shield on GND; left LED +3V3 - 1k - anode, cathode on INT; right LED anode on
+        +3V3, cathode - 1k - GND."""
+        n = {(f.ref, p.num): p.net for f in self.b.footprints for p in f.pads}
+        j = next(f.ref for f in self.b.footprints if "RJ45" in f.lib_id)
+        self.assertEqual("GND", n[(j, "SH")])
+        self.assertEqual(n[(j, "8")], n[(j, "9")], "left LED cathode on INT")
+        self.assertEqual("/+3V3", n[(j, "12")], "right LED anode on +3V3")
+        res = {f.ref: f.props.get("Value") for f in self.b.footprints if f.ref.startswith("R")}
+        for pin, other in (("10", "/+3V3"), ("11", "GND")):
+            rs = [r for (r, num), net in n.items() if net == n[(j, pin)] and r in res]
+            self.assertEqual(1, len(rs), pin)
+            self.assertEqual("1k", res[rs[0]], pin)
+            self.assertIn(other, {n[(rs[0], "1")], n[(rs[0], "2")]}, pin)
 
     def test_markings(self):
         """Name and revision from the generator's one place, and 'Made on the Island', on silkscreen."""

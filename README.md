@@ -23,7 +23,7 @@ How the boards are generated and tested: [common/README.md](common/README.md).
 | Dir | Board | MCP23017 | Size (max) | Mask colour |
 |-----|-------|----------|------------|-------------|
 | `main/` | Main: Main 1 + Main 2 + 7-seg + Feather + bus hub | 0x20, 0x21 | 180 × 110 mm | green |
-| `gain-compressor/` | Gate + Compressor (Rev0: hot-swap I²C buffer, VCC ferrite, debounced footswitches) | 0x22 | 60 × 116 mm (Hammond 1590N1 template) | yellow |
+| `gain-compressor/` | Gate + Compressor (Rev0: hot-swap I²C buffer, VCC ferrite, debounced Q27 push buttons on the board, RJ45 with LEDs) | 0x22 | 60 × 116 mm (Hammond 1590N1 template) | yellow |
 | `effect/` | Effect | 0x23 | 50 × 65 mm | purple |
 | `echo/` | Echo | 0x24 | 50 × 65 mm | white (black silk) |
 | `rever/` | Reverb | 0x25 | 50 × 65 mm | blue |

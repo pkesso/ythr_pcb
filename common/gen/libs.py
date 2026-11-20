@@ -2,7 +2,14 @@
 
 The libraries live in common/lib and are shared by every board. Library footprints are copied from the installed
 KiCad (a snapshot, so the boards do not depend on the installed library version); footprints that KiCad does not
-have are generated here from the manufacturers' land patterns.
+have are generated here from the manufacturers' land patterns, or copied from the pcb skill's shared parts library
+(footprint + 3D model, with make.py and sources there):
+
+    python <skill>/scripts/parts_lib.py copy NAME --to common/lib/PedalLib.pretty \
+        --model-path '${KIPRJMOD}/../common/lib/PedalLib.3dshapes'
+
+Copies here: RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx, PushButton_Q27_15-32UNS_SPDT_SolderLug,
+RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal (see PedalLib.pretty/.pcb-parts.json).
 
     python -m gen.libs          (from common/) regenerates the libraries
 """
@@ -58,6 +65,8 @@ SNAPSHOT_SYMBOLS = [
     ("Device", "LED"),
     ("Device", "R_Pack04"),
     ("Connector", "8P8C"),
+    ("Connector", "8P8C_LED_Shielded"),
+    ("Switch", "SW_SPDT_312"),
     ("Jumper", "SolderJumper_2_Open"),
     ("Jumper", "SolderJumper_3_Bridged12"),
     ("Connector_Generic", "Conn_01x02"),
@@ -95,40 +104,6 @@ def _poly(pts, layer, width, ids, key, fill="no"):
 def _rect(x0, y0, x1, y1, layer, width, ids, key):
     return (f'(fp_rect (start {f(x0)} {f(y0)}) (end {f(x1)} {f(y1)}) (stroke (width {width}) (type solid)) (fill no) '
             f'(layer {q(layer)}) (uuid {ids.q(*key)}))')
-
-
-def footprint_pec11r(ids):
-    """Bourns PEC11R-4xxxF-Sxxxx (vertical, with push switch), land pattern from LCSC C143789 (EasyEDA
-    SW-TH_PEC11R-4XXXF-SXXXX). Seen from the knob side (top): A-C-B row at +7.25 mm, switch pins at -7.25 mm,
-    mounting lugs (MP, slotted) at +-5.7 mm. Body 12.5 x 13.4 mm."""
-    name = "RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
-    o = _fp_header(name, "Bourns PEC11R-4xxxF-Sxxxx incremental encoder, vertical, 11 mm, with switch "
-                         "(land pattern from LCSC C143789)", "rotary encoder PEC11R EC11", "through_hole")
-    o.append(_rect(-6.25, -6.7, 6.25, 6.7, "F.Fab", 0.1, ids, (name, "fab")))
-    o.append(f'(fp_circle (center 0 0) (end 3 0) (stroke (width 0.1) (type solid)) (fill no) (layer "F.Fab") '
-             f'(uuid {ids.q(name, "fab_shaft")}))')
-    # silkscreen: body corners only (the pins sit on the body edge)
-    for sx in (-1, 1):
-        for sy in (-1, 1):
-            x, y = 6.35 * sx, 6.8 * sy
-            o.append(_poly([(x, y - 1.5 * sy), (x, y), (x - 1.5 * sx, y)], "F.SilkS", 0.12, ids,
-                           (name, "silk", sx, sy)))
-    # courtyard: body + pin rows + lugs (a cross shape keeps neighbouring encoders packed closely)
-    cy = [(-3.65, -8.4), (3.65, -8.4), (3.65, -6.95), (6.5, -6.95), (6.5, -2.4), (7.15, -2.4), (7.15, 1.9),
-          (6.5, 1.9), (6.5, 6.95), (3.65, 6.95), (3.65, 8.4), (-3.65, 8.4), (-3.65, 6.95), (-6.5, 6.95),
-          (-6.5, 1.9), (-7.15, 1.9), (-7.15, -2.4), (-6.5, -2.4), (-6.5, -6.95), (-3.65, -6.95)]
-    o.append(_poly(cy, "F.CrtYd", 0.05, ids, (name, "crtyd")))
-    pads = [("S1", -2.5, -7.25), ("S2", 2.5, -7.25), ("A", -2.5, 7.25), ("C", 0, 7.25), ("B", 2.5, 7.25)]
-    for num, x, y in pads:
-        shape = "rect" if num == "A" else "circle"
-        o.append(f'(pad {q(num)} thru_hole {shape} (at {f(x)} {f(y)}) (size 1.8 1.8) (drill 1.2) '
-                 f'(layers "*.Cu" "*.Mask") (uuid {ids.q(name, "pad", num)}))')
-    for i, x in enumerate((-5.7, 5.7)):
-        o.append(f'(pad "MP" thru_hole oval (at {f(x)} -0.25) (size 2.4 3.8) (drill oval 1.4 2.8) '
-                 f'(layers "*.Cu" "*.Mask") (uuid {ids.q(name, "pad", "MP", i)}))')
-    o.append(f'(fp_text user "${{REFERENCE}}" (at 0 0 0) (layer "F.Fab") (uuid {ids.q(name, "fabref")}) '
-             f'(effects (font (size 1 1) (thickness 0.15))))')
-    return name, "\n".join(o) + ")\n"
 
 
 def footprint_rj45_ckmtw(ids):
@@ -219,7 +194,7 @@ def footprint_hole_18(ids):
     return name, "\n".join(o) + ")\n"
 
 
-OWN_FOOTPRINTS = [footprint_pec11r, footprint_rj45_ckmtw, footprint_hole_footswitch, footprint_wire_pads,
+OWN_FOOTPRINTS = [footprint_rj45_ckmtw, footprint_hole_footswitch, footprint_wire_pads,
                   footprint_wire_pads3, footprint_hole_m6, footprint_hole_18]
 
 
@@ -323,10 +298,17 @@ def build_symbol_lib():
 def _stable_uuids(pretty):
     """kicad-cli fp upgrade gives items without a UUID (the properties of KiCad's library footprints, ours too) a
     random one on every run: replace every UUID in each footprint by one derived from the footprint name and the
-    item's position in the file, so rebuilding the library gives identical files."""
+    item's position in the file, so rebuilding the library gives identical files. Copies from the skill's parts
+    library (listed in .pcb-parts.json, written by parts_lib.py copy) keep their own keyed UUIDs."""
     ns = uuid.UUID("9d6b2c4e-1f3a-4e5b-8c7d-0a1b2c3d4e5f")
+    copies = set()
+    manifest = os.path.join(pretty, ".pcb-parts.json")
+    if os.path.isfile(manifest):
+        import json
+        with open(manifest, encoding="utf-8") as fh:
+            copies = {os.path.basename(rel) for k, v in json.load(fh).items() if isinstance(v, dict) for rel in v}
     for fn in sorted(os.listdir(pretty)):
-        if not fn.endswith(".kicad_mod"):
+        if not fn.endswith(".kicad_mod") or fn in copies:
             continue
         path = os.path.join(pretty, fn)
         text = open(path, encoding="utf-8").read()

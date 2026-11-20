@@ -128,8 +128,8 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 
 - Catalogue: 插件, 插件 Rotary Encoders ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 14.30 x 16.80 mm
-- Pins: A  -> /ENC1_A [1.8x1.8 drill 1.2]; B  -> /ENC1_B [1.8x1.8 drill 1.2]; C  -> GND [1.8x1.8 drill 1.2]; MP  -> GND [2.4x3.8 drill 1.4]; MP  -> GND [2.4x3.8 drill 1.4]; S1  -> unconnected-(ENC1-PadS1) [1.8x1.8 drill 1.2]; S2  -> unconnected-(ENC1-PadS2) [1.8x1.8 drill 1.2]
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
+- Pins: A  -> /ENC1_A [1.8x1.8 drill 1]; B  -> /ENC1_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC1-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC1-PadS2) [1.8x1.8 drill 1]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
@@ -137,8 +137,8 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 
 - Catalogue: 插件, 插件 Rotary Encoders ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 14.30 x 16.80 mm
-- Pins: A  -> /ENC2_A [1.8x1.8 drill 1.2]; B  -> /ENC2_B [1.8x1.8 drill 1.2]; C  -> GND [1.8x1.8 drill 1.2]; MP  -> GND [2.4x3.8 drill 1.4]; MP  -> GND [2.4x3.8 drill 1.4]; S1  -> unconnected-(ENC2-PadS1) [1.8x1.8 drill 1.2]; S2  -> unconnected-(ENC2-PadS2) [1.8x1.8 drill 1.2]
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
+- Pins: A  -> /ENC2_A [1.8x1.8 drill 1]; B  -> /ENC2_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC2-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC2-PadS2) [1.8x1.8 drill 1]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
@@ -146,8 +146,8 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 
 - Catalogue: 插件, 插件 Rotary Encoders ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 14.30 x 16.80 mm
-- Pins: A  -> /ENC3_A [1.8x1.8 drill 1.2]; B  -> /ENC3_B [1.8x1.8 drill 1.2]; C  -> GND [1.8x1.8 drill 1.2]; MP  -> GND [2.4x3.8 drill 1.4]; MP  -> GND [2.4x3.8 drill 1.4]; S1  -> unconnected-(ENC3-PadS1) [1.8x1.8 drill 1.2]; S2  -> unconnected-(ENC3-PadS2) [1.8x1.8 drill 1.2]
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
+- Pins: A  -> /ENC3_A [1.8x1.8 drill 1]; B  -> /ENC3_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC3-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC3-PadS2) [1.8x1.8 drill 1]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
@@ -155,8 +155,8 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 
 - Catalogue: 插件, 插件 Rotary Encoders ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 14.30 x 16.80 mm
-- Pins: A  -> /ENC4_A [1.8x1.8 drill 1.2]; B  -> /ENC4_B [1.8x1.8 drill 1.2]; C  -> GND [1.8x1.8 drill 1.2]; MP  -> GND [2.4x3.8 drill 1.4]; MP  -> GND [2.4x3.8 drill 1.4]; S1  -> unconnected-(ENC4-PadS1) [1.8x1.8 drill 1.2]; S2  -> unconnected-(ENC4-PadS2) [1.8x1.8 drill 1.2]
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
+- Pins: A  -> /ENC4_A [1.8x1.8 drill 1]; B  -> /ENC4_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC4-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC4-PadS2) [1.8x1.8 drill 1]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
@@ -168,30 +168,12 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /VBUS [0.875x0.95]; 2  -> /+3V3 [0.875x0.95]
 - **Verdict:** auto ok
 
-## H1 - M12 - no LCSC 
+## J1 - R-RJ45R08P-C004 - no LCSC 
 
 - Catalogue: ?, 
 - Datasheet: none
-- Footprint: PedalLib:Hole_M12_Footswitch on F.Cu, pitch 0.000 mm, courtyard 20.00 x 20.00 mm
-- Pins:   -> - [12.5x12.5 drill 12.5]
-- To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
-- **Verdict:** 
-
-## H2 - M12 - no LCSC 
-
-- Catalogue: ?, 
-- Datasheet: none
-- Footprint: PedalLib:Hole_M12_Footswitch on F.Cu, pitch 0.000 mm, courtyard 20.00 x 20.00 mm
-- Pins:   -> - [12.5x12.5 drill 12.5]
-- To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
-- **Verdict:** 
-
-## J1 - R-RJ45R08P-A004 - C385834 R-RJ45R08P-A004
-
-- Catalogue: 弯插, 0℃~+70℃ 1 Gold Harpoon Contact (Plastic) Non-LED Phosphor bronze RJ45 Jack Right Angle Unshielded 弯插 Ethernet Connectors
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588892083801636864
-- Footprint: PedalLib:RJ45_Ckmtw_R-RJ45R08P-A004_Horizontal on B.Cu, pitch 2.040 mm, courtyard 16.50 x 15.60 mm
-- Pins:   -> - [3.4x3.4 drill 3.4];   -> - [3.4x3.4 drill 3.4]; 1  -> GND [1.5x1.5 drill 0.9]; 2  -> /SCL [1.5x1.5 drill 0.9]; 3  -> GND [1.5x1.5 drill 0.9]; 4  -> /SDA [1.5x1.5 drill 0.9]; 5  -> GND [1.5x1.5 drill 0.9]; 6  -> /VBUS [1.5x1.5 drill 0.9]; 7  -> GND [1.5x1.5 drill 0.9]; 8  -> /INT [1.5x1.5 drill 0.9]
+- Footprint: PedalLib:RJ45_Ckmtw_R-RJ45R08P-C004_Horizontal on B.Cu, pitch 2.040 mm, courtyard 19.36 x 16.25 mm
+- Pins:   -> - [3.25x3.25 drill 3.25];   -> - [3.25x3.25 drill 3.25]; 1  -> GND [1.5x1.5 drill 0.9]; 2  -> /SCL [1.5x1.5 drill 0.9]; 3  -> GND [1.5x1.5 drill 0.9]; 4  -> /SDA [1.5x1.5 drill 0.9]; 5  -> GND [1.5x1.5 drill 0.9]; 6  -> /VBUS [1.5x1.5 drill 0.9]; 7  -> GND [1.5x1.5 drill 0.9]; 8  -> /INT [1.5x1.5 drill 0.9]; 9  -> /INT [1.4x1.4 drill 0.9]; 10  -> /LED_INT_A [1.4x1.4 drill 0.9]; 11  -> /LED_PWR_K [1.4x1.4 drill 0.9]; 12  -> /+3V3 [1.4x1.4 drill 0.9]; SH  -> GND [2.6x2.6 drill 1.8]; SH  -> GND [2.6x2.6 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
@@ -301,7 +283,23 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /I2C_PU [0.8x0.95]; 2  -> /SDA [0.8x0.95]
 - **Verdict:** auto ok
 
-## R3 - 10k - C25804 0603WAF1002T5E
+## R3 - 1k - C21190 0603WAF1001T5E
+
+- Catalogue: 0603, -55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706098733010944
+- Footprint: PedalLib:R_0603_1608Metric on F.Cu, pitch 1.650 mm, courtyard 2.96 x 1.46 mm
+- Pins: 1  -> /+3V3 [0.8x0.95]; 2  -> /LED_INT_A [0.8x0.95]
+- **Verdict:** auto ok
+
+## R4 - 1k - C21190 0603WAF1001T5E
+
+- Catalogue: 0603, -55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706098733010944
+- Footprint: PedalLib:R_0603_1608Metric on F.Cu, pitch 1.650 mm, courtyard 2.96 x 1.46 mm
+- Pins: 1  -> /LED_PWR_K [0.8x0.95]; 2  -> GND [0.8x0.95]
+- **Verdict:** auto ok
+
+## R5 - 10k - C25804 0603WAF1002T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072
@@ -309,7 +307,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /+3V3 [0.8x0.95]; 2  -> /SCL_L [0.8x0.95]
 - **Verdict:** auto ok
 
-## R4 - 10k - C25804 0603WAF1002T5E
+## R6 - 10k - C25804 0603WAF1002T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072
@@ -317,7 +315,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /+3V3 [0.8x0.95]; 2  -> /SDA_L [0.8x0.95]
 - **Verdict:** auto ok
 
-## R5 - 470 - C23179 0603WAF4700T5E
+## R7 - 470 - C23179 0603WAF4700T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 470Ω 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706265439817728
@@ -325,7 +323,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /LED1_J [0.8x0.95]; 2  -> /LED1_A [0.8x0.95]
 - **Verdict:** auto ok
 
-## R6 - 470 - C23179 0603WAF4700T5E
+## R8 - 470 - C23179 0603WAF4700T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 470Ω 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706265439817728
@@ -333,7 +331,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /LED2_J [0.8x0.95]; 2  -> /LED2_A [0.8x0.95]
 - **Verdict:** auto ok
 
-## R7 - 10k - C25804 0603WAF1002T5E
+## R9 - 10k - C25804 0603WAF1002T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072
@@ -341,7 +339,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /+3V3 [0.8x0.95]; 2  -> /SW1 [0.8x0.95]
 - **Verdict:** auto ok
 
-## R8 - 1k - C21190 0603WAF1001T5E
+## R10 - 1k - C21190 0603WAF1001T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706098733010944
@@ -349,7 +347,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /SW1 [0.8x0.95]; 2  -> /GPA0 [0.8x0.95]
 - **Verdict:** auto ok
 
-## R9 - 10k - C25804 0603WAF1002T5E
+## R11 - 10k - C25804 0603WAF1002T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072
@@ -357,7 +355,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /+3V3 [0.8x0.95]; 2  -> /SW2 [0.8x0.95]
 - **Verdict:** auto ok
 
-## R10 - 1k - C21190 0603WAF1001T5E
+## R12 - 1k - C21190 0603WAF1001T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 1kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706098733010944
@@ -365,7 +363,7 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Pins: 1  -> /SW2 [0.8x0.95]; 2  -> /GPB0 [0.8x0.95]
 - **Verdict:** auto ok
 
-## R11 - 10k - C25804 0603WAF1002T5E
+## R13 - 10k - C25804 0603WAF1002T5E
 
 - Catalogue: 0603, -55℃~+155℃ 100mW 10kΩ 75V Thick Film Resistor ±1% ±100ppm/℃ 0603 Chip Resistor - Surface Mount ROHS
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579706381320323072
@@ -406,6 +404,24 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 32.
 - Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8579705779295092736
 - Footprint: PedalLib:R_Array_Convex_4x0603 on F.Cu, pitch 0.800 mm, courtyard 3.10 x 3.70 mm
 - Pins: 1 R1.1 -> /ENC4_B [0.8x0.5]; 2 R2.1 -> /ENC4_B [0.8x0.4]; 3 R3.1 -> /ENC4_A [0.8x0.4]; 4 R4.1 -> /ENC4_A [0.8x0.5]; 5 R4.2 -> /GPB2 [0.8x0.5]; 6 R3.2 -> /+3V3 [0.8x0.4]; 7 R2.2 -> /+3V3 [0.8x0.4]; 8 R1.2 -> /GPB3 [0.8x0.5]
+- To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
+- **Verdict:** 
+
+## SW1 - Q27 (7MS7) - no LCSC 
+
+- Catalogue: ?, 
+- Datasheet: none
+- Footprint: PedalLib:PushButton_Q27_15-32UNS_SPDT_SolderLug on F.Cu, pitch 4.700 mm, courtyard 13.20 x 13.20 mm
+- Pins: 1 B -> GND [3.2x1.9 drill 1.1]; 2 C -> /SW1 [3.2x1.9 drill 1.1]; 3 A -> unconnected-(SW1-A-Pad3) [3.2x1.9 drill 1.1]
+- To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
+- **Verdict:** 
+
+## SW2 - Q27 (7MS7) - no LCSC 
+
+- Catalogue: ?, 
+- Datasheet: none
+- Footprint: PedalLib:PushButton_Q27_15-32UNS_SPDT_SolderLug on F.Cu, pitch 4.700 mm, courtyard 13.20 x 13.20 mm
+- Pins: 1 B -> GND [3.2x1.9 drill 1.1]; 2 C -> /SW2 [3.2x1.9 drill 1.1]; 3 A -> unconnected-(SW2-A-Pad3) [3.2x1.9 drill 1.1]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 

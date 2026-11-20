@@ -19,6 +19,9 @@ DRC includes schematic parity and refilled zones; KiCad 10.0.2. Each board regen
 - Encoders (Bourns PEC11R-4015F-S0024, push switch unconnected except Echo TIME = TAP) on the top side, 28 mm
   square (centre encoder for 5-knob pedals); pins face the centre column. The panel rests on the encoder
   bushings, 6 mm above the board.
+- Gate + Comp hangs on its two Dailywell Q27 push buttons soldered into the board instead (lid on their housings,
+  10.43 mm above the board; the encoders only pass through 7.5 mm lid holes), shielded RJ45 with power / INT LEDs,
+  rim 0.3 mm: [gain-compressor/REPORT.md](gain-compressor/REPORT.md).
 - On-board LEDs + their jumpers in a row 3 mm above the bottom edge; the bezel lamps' wire pads (`+` = GPIO,
   `−` = GND) below each LED, footswitch wire pads in the bottom corners (GPIO, GND).
 - Presets hangs on its five footswitches: 12.5 mm holes (M12 clearance, ISO 273 fine) at y = 36 mm, 45 mm
@@ -54,8 +57,9 @@ blue and orange LED) ≈ $18 in fees; THT on the top side only (9 encoders, 2 di
 
 ## Not verified / open
 
-- Encoder land pattern and the 6 mm body height come from LCSC/EasyEDA data and the prototype measurement, not
-  from the Bourns drawing (the PDF could not be read here).
+- Encoder land pattern: corrected in `PedalLib` to the Bourns PEC11R datasheet on 2026-11-21 (pin rows 7.5 / 7.0 mm,
+  lugs ±6.6 mm, body 6.5 mm, not 6). Only Gate + Comp is regenerated with it so far; the other boards fail the
+  library check (`Checks.test_drc`) until each is regenerated.
 - RJ45 pin numbering = T568B wire order in README.md; check against the existing cables before ordering.
 - Lamp / LED / footswitch positions on the panel follow the board layout; no drill template yet.
 - Gerbers are not exported yet (zones are filled by KiCad on export).

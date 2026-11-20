@@ -8,6 +8,7 @@ outside (the board's top side faces the lid, so the view is not mirrored). Hole 
 
   encoder bushing (PEC11R, M7 x 0.75 thread)   7.5 mm
   footswitch (12 mm, M12 thread)              12.5 mm (ISO 273 fine)
+  Q27 push button (15/32-32 UNS thread)       11.91 mm (maker's drawing, without the locking ring's hole)
   on-board LED window (optional)               3 mm, drawn dashed
 
 The template is centred on the board: line the dashed centre lines up with the lid's centre lines.
@@ -21,8 +22,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-HOLES = {"ENC": (7.5, "solid"), "HOLE12": (12.5, "solid"), "LED": (3.0, "dashed")}
-NAMES = {"HOLE12": "footswitch", "LED": "LED"}
+HOLES = {"ENC": (7.5, "solid"), "HOLE12": (12.5, "solid"), "Q27": (11.91, "solid"), "LED": (3.0, "dashed")}
+NAMES = {"HOLE12": "footswitch", "Q27": "Q27 button", "LED": "LED"}
 
 
 def holes(d):
