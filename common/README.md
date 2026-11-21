@@ -12,7 +12,7 @@ ythr_pcb/
   parts/            availability.json: stock, prices, lifecycle and alternates of the parts (checked by hand)
   common/
     lib/            PedalLib.pretty (footprints) + PedalLib.kicad_sym (symbols) used by all boards
-    templates/      enclosure board templates (Type_Z-77_1590N1: Gate + Comp), copied into the project
+    templates/      enclosure board templates (Type_Z-76_Z-77: Gate + Comp, Effect, Reverb; Type_Z-77_1590N1: unused since Gate + Comp moved), copied into the project
     gen/
       libs.py       builds lib/: snapshot of KiCad library parts + own footprints (PEC11R, RJ45 Ckmtw, holes,
                     wire pads) and symbols (7-segment digit, common anode)
@@ -59,9 +59,9 @@ nets).
 | `Checks` | KiCad ERC of the schematic; KiCad DRC of the board with refilled zones and schematic parity - no errors and no warnings |
 | `Regenerate` | running the generator again (routing from `routing.pkl`) gives byte-identical board, schematic, BOM and CPL: nothing random, and the files are up to date with the generator |
 | `Fab` | JLCPCB limits: tracks >= 0.127 mm; vias drill >= 0.3, diameter >= 0.45, annular >= 0.13; plated holes drill >= 0.3, annular >= 0.15; NPTH >= 0.5; silkscreen text >= 1.0 mm high, 0.15 mm stroke; GND zones on both layers |
-| `Mechanics` | board sizes (50 x 65, Effect 50 x 104, Gate + Comp 60 x 116, Presets 200 x 50, Main 180 x 110); pads inside the board; pedal encoders on their square (28 mm; Effect 32 mm, Gate + Comp 41 mm; the 5th in its centre), knobs >= 19 mm apart, lugs on GND; pedal RJ45 on the bottom with its opening on the top edge; on the top side only SMD parts, encoders, wire pads, holes and the 7-segment digits; Presets M12 / 18 mm holes at their positions |
+| `Mechanics` | board sizes (50 x 65, Gate + Comp, Effect and Reverb 50 x 104, Presets 200 x 50, Main 180 x 110); pads inside the board; pedal encoders on their square (28 mm; Gate + Comp, Effect and Reverb 32 mm; the 5th in its centre), knobs >= 19 mm apart, lugs on GND; pedal RJ45 on the bottom with its opening on the top edge; on the top side only SMD parts, encoders, wire pads, holes and the 7-segment digits; Presets M12 / 18 mm holes at their positions |
 | `MainLayout` | Main: the encoder rows (30 mm pitch, 25 mm apart, offset 15 mm); the two digits upright and symmetric about the centre line; the flavor LEDs on the 25 mm arc (blue at 90°, green 120°, orange 60°); the Feather sockets on the bottom, 20.32 mm apart, USB-A end at the top; 6 RJ45 on the bottom, openings on the bottom edge, symmetric |
-| `GateComp`, `Effect` | the same checks for both template boards (Effect: Type_Z-76_Z-77, MODE / ON buttons at (9, 87) / (41, 87)). Gate + Comp: Edge.Cuts = the 1590N1 template moved to the origin, every grid row has an inside span; Q27 push buttons at (16, 96) / (44, 96) (COMM on GND, NO on the footswitch pad's net, GATE / COMPRESSOR labels as large as the name); the RJ45's shield and LEDs (1k each, INT / power); name, `Rev0` and `Made on the Island` on silkscreen; 6 test pads on the bottom (GND, 3V3, SCL_L, SDA_L, INT, RESET); JLCPCB rules in the project |
+| `GateComp`, `Effect`, `Reverb` | the same checks for the template boards (Type_Z-76_Z-77; Q27 buttons at (9, 87) / (41, 87): GATE / COMPRESSOR, MODE / ON): Edge.Cuts = the template moved to the origin, every grid row has an inside span; Q27 COMM on GND, NO on the footswitch pad's net, the buttons' labels as large as the name; the RJ45's shield and LEDs (1k each, INT / power); name, `Rev0` and `Made on the Island` on silkscreen; 6 test pads on the bottom (GND, 3V3, SCL_L, SDA_L, INT, RESET); JLCPCB rules in the project |
 | `test_sim_gate_comp.py` | ngspice (KiCad), deck from the design: footswitch debounce press / release times against the RC values (MCP weak pull-up 43k-125k), 0.3 ms release bounce filtered; encoder filter edges |
 | `Assembly` | BOM and CPL match the board (parts, values, LCSC numbers, positions, side, rotation); LCSC numbers only from `gen/parts.py`; at most 4 extended part numbers per design (Presets 3, Main 6) |
 

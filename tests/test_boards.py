@@ -28,16 +28,18 @@ import jlcpcb_rules  # noqa: E402
 JLC = dict(track=0.127, via_drill=0.3, via_diameter=0.45, via_annular=0.13, pth_drill=0.3, pth_annular=0.15,
            npth_drill=0.5, silk_height=1.0, silk_thickness=0.15)
 PEDAL_SIZE = (50.0, 65.0)
-SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (60.0, 116.0), "effect": (50.0, 104.0)}
+SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (50.0, 104.0), "effect": (50.0, 104.0),
+         "reverb": (50.0, 104.0)}
 # boards cut to an enclosure template (common/templates): parts and copper stay inside its outline
-OUTLINES = {"gate_comp": "Type_Z-77_1590N1", "effect": "Type_Z-76_Z-77"}
+OUTLINES = {"gate_comp": "Type_Z-76_Z-77", "effect": "Type_Z-76_Z-77", "reverb": "Type_Z-76_Z-77"}
 # pedal encoder squares other than the default 28 mm one at (11..39, 20..48)
-ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)],       # 41 mm square
-            "effect": [(9.0, 21.0), (9.0, 53.0), (41.0, 21.0), (41.0, 53.0)]}          # 32 mm square
+ENC_GRID = {"gate_comp": [(9.0, 21.0), (9.0, 53.0), (41.0, 21.0), (41.0, 53.0)],       # 32 mm square
+            "effect": [(9.0, 21.0), (9.0, 53.0), (41.0, 21.0), (41.0, 53.0)],          # 32 mm square
+            "reverb": [(9.0, 21.0), (9.0, 53.0), (41.0, 21.0), (41.0, 53.0)]}          # 32 mm square
 # extended part numbers per design (each costs a feeder fee); others 4. Main: + the display, blue and orange LEDs
-MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5, "effect": 5}   # Gate + Comp, Effect: + the PCA9511A bus buffer
+MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5, "effect": 5, "reverb": 5}   # + the PCA9511A bus buffer
 TOP_THT_ALLOWED = ("ENC", "J", "H", "DS", "SW")  # on the top side only encoders, wire pads, holes, the 7-segment
-#                                                   digits and the Q27 buttons (Gate + Comp, Effect: the lid rests on them)
+#                                                   digits and the Q27 buttons (the lid rests on them)
 #                                              and the 7-segment digits (8 mm: their faces reach the panel window)
 
 
@@ -369,9 +371,15 @@ class _Templated:
 
 
 class GateComp(_Templated, unittest.TestCase):
-    """Gate + Comp: the Type_Z-77_1590N1 template, GATE / COMPRESSOR buttons."""
+    """Gate + Comp: the Type_Z-76_Z-77 template, GATE / COMPRESSOR buttons on the side lines."""
     BOARD, GEN = "gate_comp", "gen_gate_comp"
-    BUTTONS = (((16.0, 96.0), "GATE"), ((44.0, 96.0), "COMPRESSOR"))
+    BUTTONS = (((9.0, 87.0), "GATE"), ((41.0, 87.0), "COMPRESSOR"))
+
+
+class Reverb(_Templated, unittest.TestCase):
+    """Reverb: the Type_Z-76_Z-77 template, MODE / ON buttons on the side lines, as on Effect."""
+    BOARD, GEN = "reverb", "gen_reverb"
+    BUTTONS = (((9.0, 87.0), "MODE"), ((41.0, 87.0), "ON"))
 
 
 class Effect(_Templated, unittest.TestCase):

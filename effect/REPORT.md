@@ -66,8 +66,8 @@ MIX GPA3/GPB3, PR_DL GPA4/GPB4, SPEED GPA5/GPB5; indicators CH GPB6, FL GPA6, PH
   PEC11R-4015F-N0024 here (24 pulses, D-shaft) does not meet it yet — to be replaced when a part is chosen, by one
   without the push switch (or with the side encoders' switch pins clear of the rim: with them a 32 mm square does
   not fit, the pins land on the rim line 1 mm from the edge).
-- **PEC11R-4015F-N0024 stock:** 77 at JLCPCB (2026-11-21), enough for 5 boards (25); no alternate with this land
-  pattern and no switch was checked. The S0024 version (with switch, 3754 in stock) does not fit the 32 mm square.
+- **PEC11R-4015F-N0024 stock:** 77 at JLCPCB (2026-11-21), enough for 5 boards (25), but Gate + Comp,
+  Effect and Reverb together need 65; no alternate with this land pattern and no switch was checked. The S0024 version (with switch, 3754 in stock) does not fit the 32 mm square.
 - **Q27 row at y = 87, not 88** (the layout first agreed on): at 88 the buttons' square courtyards crossed the rim round
   the bottom corner notches by 0.6 mm. MODE's label is 1.5 mm right of the button's axis, clear of the same rim.
 - **FB1's reference** found no free spot on the silkscreen (the jack area is full): it is on the Fab layer only.
