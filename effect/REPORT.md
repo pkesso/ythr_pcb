@@ -10,11 +10,11 @@ same bus block, buttons and encoders. Decisions behind the shared blocks: [../RE
 |---|---|---|
 | Outline | 50 × 65 mm rectangle | enclosure template **`Type_Z-76_Z-77`**, 50 × 104 mm, narrow tabs 37 mm wide at both ends, 4 × Ø2.4 mm holes (copy in `common/templates/`), kept as it is; its rim printed along the edge on both sides, **0.3 mm**; nothing beyond the rim but the RJ45 |
 | Mask | purple | purple (white silkscreen) |
-| Layout | 28 mm square, LEDs at the bottom edge, footswitches on wires in the corners | pedals skill default: side lines x = 10 / 40 (30 mm apart); encoders in a **30 mm square** (FDBK, DEPTH at y = 22, PR_DL, SPEED at y = 52), MIX in its centre (25, 37); indicators CHORUS / FLANGER / PHASER / TREMOLO in a row at y = 65 (x = 10 … 40); **Q27 buttons** MODE / ON at (10, 87) / (40, 87) |
+| Layout | 28 mm square, LEDs at the bottom edge, footswitches on wires in the corners | pedals skill default: side lines x = 9 / 41 (32 mm apart); encoders in a **32 mm square** (FDBK, DEPTH at y = 21, PR_DL, SPEED at y = 53), MIX in its centre (25, 37); indicators CHORUS / FLANGER / PHASER / TREMOLO in a row at y = 65, x = 10 … 40 (10 mm apart: on the side lines the outer jumpers would reach the rim round the holes); **Q27 buttons** MODE / ON on the side lines at (9, 87) / (41, 87) |
 | Footswitches | wire pads in the bottom corners | **Dailywell Q27 (7MS7)** push buttons soldered into the board, 1 COMM = GND, 2 NO = the wire pad's net (before the debounce), 3 NC open; the wire pads stay between the buttons for external switches in parallel; MODE / ON under the buttons, 1.5 mm |
 | Footswitch inputs | wire straight to the GPIO | **hardware debounce**: 10k pull-up, 1k series, 100n at the pin |
 | Bus | unshielded RJ45 straight to the MCP | **shielded RJ45 with LEDs** (Ckmtw R-RJ45R08P-C004 footprint; the user's ZSDZFYLLK jack, hand-soldered, not in the BOM): yellow = INT, green = power, 1k each; **PCA9511A hot-swap buffer** (card side SCL_L / SDA_L, 10k pull-ups); **ferrite** on VCC |
-| Encoders | EasyEDA land pattern | Bourns PEC11R datasheet land pattern and 3D model (shared `PedalLib`) |
+| Encoders | PEC11R-4015F-S0024 (with push switch), EasyEDA land pattern | **PEC11R-4015F-N0024, no push switch** (the project needs none; without the switch pins the side encoders fit 9 mm from the edge), Bourns datasheet land pattern and 3D model: new shared part `RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx`, symbol `RotaryEncoder_MP` (A, C, B, MP) in `PedalLib` |
 | Ground | local label `/GND` | global net **`GND`** |
 | Test points | none | 6 pads on the bottom: GND, 3V3, SCL, SDA, INT, RST |
 | Markings | "EFFECT" on top, "YTHR Effect rev A" on the back | `YTHR EFFECT`, `Rev0`, `Made on the Island` on the back (name / revision from one place in the generator) |
@@ -30,11 +30,11 @@ MIX GPA3/GPB3, PR_DL GPA4/GPB4, SPEED GPA5/GPB5; indicators CH GPB6, FL GPA6, PH
 |---|---|
 | ERC | 0 errors, 0 warnings |
 | DRC (zones refilled, schematic parity, JLCPCB rules) | 0 errors, 0 warnings |
-| Freerouting | 0 unrouted, 0 violations; copper check 0 problems; 2073 mm of track, 107 vias (31 GND stitching) |
+| Freerouting | 0 unrouted, 0 violations; copper check 0 problems; 2032 mm of track, 98 vias |
 | Generator runs twice → byte-identical board, schematic, BOM, CPL | yes |
 | `repo_check.py` | format, paths, python, ERC, DRC, assembly, rules: ok |
 | `tests` (all groups but `Regenerate`) | Effect's tests pass (outline = the template, buttons and labels, jack LEDs, markings, test pads, JLCPCB rules, copper / parts / labels inside the rim, encoder square, extended parts); `Checks.test_drc` fails on echo, reverb and main only, which still carry the old encoder footprint |
-| Gerbers (`gerber.py`) | `gerbers/effect-gerbers.zip`, validated: 11 files, 172 plated + 2 non-plated holes |
+| Gerbers (`gerber.py`) | `gerbers/effect-gerbers.zip`, validated: 11 files, 153 plated + 2 non-plated holes |
 | Renders / height map (`views.py --panel 10.43 --through ENC1..5,SW1,SW2`, `heights.csv` for wire pads, jumpers, test pads) | `renders/`; nothing but the encoders and buttons reaches the lid (MCP 2.1 mm); bottom: RJ45 13.1 mm |
 | Pre-order sheet | `parts/preorder.md`: 71 parts, no automatic mismatch, 40 to confirm against their datasheets |
 | Drill template | `effect_drill.pdf` (A4, 1:1): encoders 7.5 mm, Q27 11.91 mm, optional LED windows 3 mm |
@@ -44,18 +44,18 @@ MIX GPA3/GPB3, PR_DL GPA4/GPB4, SPEED GPA5/GPB5; indicators CH GPB6, FL GPA6, PH
 | Part | Fixed to | Mounting surface above the board | Note |
 |---|---|---|---|
 | Q27 push button × 2 | lid (15/32" nut) and board (soldered) | 10.43 mm (housing top) | carries the board; thread 9.4 mm out past a 2 mm wall |
-| PEC11R encoder × 5 | board only (soldered) | 6.5 mm (body), 3.9 mm under the lid | bushing ends 11.5 mm above the board, 0.9 mm short of the lid's outer face: no nut; shaft through a 7.5 mm lid hole (as on Gate + Comp, user's decision) |
+| PEC11R-N encoder × 5 | board only (soldered) | 6.5 mm (body), 3.9 mm under the lid | bushing ends 11.5 mm above the board, 0.9 mm short of the lid's outer face: no nut; shaft through a 7.5 mm lid hole (as on Gate + Comp, user's decision) |
 
 ## Cost (5 boards, JLCPCB 1+ prices of 2026-11-10, estimate)
 
 | Part | LCSC | Class | Qty | Sum |
 |---|---|---|---|---|
-| PEC11R-4015F-S0024 | C143789 | extended | 5 | $13.54 |
+| PEC11R-4015F-N0024 | C22402500 | extended | 5 | $12.59 |
 | MCP23017-E/SS | C506653 | extended | 1 | $1.69 |
 | PCA9511ADP | C545194 | extended | 1 | $1.33 |
 | SRV05-4 | C558418 | extended | 1 | $0.03 |
 | passives, LEDs, ferrite (basic) | | basic | 40 | ≈ $0.30 |
-| **Parts per board** | | | | **≈ $16.9** |
+| **Parts per board** | | | | **≈ $15.9** |
 
 4 extended part numbers ($12 feeder fees per order); the RJ45 and the Q27 buttons are bought and soldered by hand
 (not counted). Bare boards 50 × 104 mm, purple: not quoted in this session.
@@ -63,8 +63,12 @@ MIX GPA3/GPB3, PR_DL GPA4/GPB4, SPEED GPA5/GPB5; indicators CH GPB6, FL GPA6, PH
 ## Possible problems, assumptions, not verified
 
 - **Encoder requirement:** the project needs 20 pulses and a knurled "plum handle" shaft (README.md); the
-  PEC11R-4015F-S0024 here (24 pulses, D-shaft) does not meet it yet — to be replaced when a part is chosen.
-- **Q27 row at y = 87, not 88** (the layout agreed on): at 88 the buttons' square courtyards crossed the rim round
+  PEC11R-4015F-N0024 here (24 pulses, D-shaft) does not meet it yet — to be replaced when a part is chosen, by one
+  without the push switch (or with the side encoders' switch pins clear of the rim: with them a 32 mm square does
+  not fit, the pins land on the rim line 1 mm from the edge).
+- **PEC11R-4015F-N0024 stock:** 77 at JLCPCB (2026-11-21), enough for 5 boards (25); no alternate with this land
+  pattern and no switch was checked. The S0024 version (with switch, 3754 in stock) does not fit the 32 mm square.
+- **Q27 row at y = 87, not 88** (the layout first agreed on): at 88 the buttons' square courtyards crossed the rim round
   the bottom corner notches by 0.6 mm. MODE's label is 1.5 mm right of the button's axis, clear of the same rim.
 - **FB1's reference** found no free spot on the silkscreen (the jack area is full): it is on the Fab layer only.
 - **Encoders do not fasten to the lid**, the knobs' side load goes into the board, which hangs on the two buttons.

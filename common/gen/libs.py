@@ -276,7 +276,32 @@ def symbol_pca9511a():
     return "\n".join(o) + "))"
 
 
-OWN_SYMBOLS = [symbol_7seg_ca, symbol_pca9511a]
+def symbol_rotary_encoder_mp():
+    """Incremental rotary encoder A / C / B with its mounting lugs (MP) and no switch: KiCad has RotaryEncoder (no
+    MP) and RotaryEncoder_Switch_MP (with the switch), not this one. Drawn as KiCad's RotaryEncoder body."""
+    name = "RotaryEncoder_MP"
+    font = "(effects (font (size 1.27 1.27)))"
+    hide = "(effects (font (size 1.27 1.27)) (hide yes))"
+    o = [f'(symbol {q(name)} (pin_names (offset 0.254) (hide yes)) (exclude_from_sim no) (in_bom yes) (on_board yes)',
+         f'(property "Reference" "SW" (at 0 6.35 0) {font})',
+         f'(property "Value" {q(name)} (at 0 -6.35 0) {font})',
+         f'(property "Footprint" "" (at 0 0 0) {hide})',
+         f'(property "Datasheet" "" (at 0 0 0) {hide})',
+         f'(property "Description" "Rotary encoder, dual channel, incremental (quadrate) outputs, mounting lugs" '
+         f'(at 0 0 0) {hide})',
+         f'(symbol "{name}_0_1" (rectangle (start -5.08 5.08) (end 5.08 -5.08) (stroke (width 0.254) '
+         '(type default)) (fill (type background))) (circle (center 0 0) (radius 2.54) (stroke (width 0.254) '
+         '(type default)) (fill (type none))))',
+         f'(symbol "{name}_1_1"']
+    pins = [(-7.62, 2.54, 0, "A", "A"), (-7.62, 0, 0, "C", "C"), (-7.62, -2.54, 0, "B", "B"),
+            (0, -7.62, 90, "MP", "MP")]
+    for x, y, a, n, num in pins:
+        o.append(f'(pin passive line (at {f(x)} {f(y)} {a}) (length 2.54) (name {q(n)} {font}) '
+                 f'(number {q(num)} {font}))')
+    return "\n".join(o) + "))"
+
+
+OWN_SYMBOLS = [symbol_7seg_ca, symbol_pca9511a, symbol_rotary_encoder_mp]
 
 
 def build_symbol_lib():

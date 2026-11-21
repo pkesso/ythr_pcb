@@ -158,48 +158,48 @@ Automatic mismatches: 0. Parts to confirm against the datasheet: 40.
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
-## ENC1 - PEC11R-4015F-S0024 - C143789 PEC11R-4015F-S0024
+## ENC1 - PEC11R-4015F-N0024 - C22402500 PEC11R-4015F-N0024
 
-- Catalogue: 插件, 插件 Rotary Encoders ROHS
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
-- Pins: A  -> /ENC1_A [1.8x1.8 drill 1]; B  -> /ENC1_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC1-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC1-PadS2) [1.8x1.8 drill 1]
+- Catalogue: 插件-3P,13.4x12.5mm, 插件-3P,13.4x12.5mm Rotary Encoders ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8602881381903187968
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 15.60 mm
+- Pins: A  -> /ENC1_A [1.8x1.8 drill 1]; B  -> /ENC1_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
-## ENC2 - PEC11R-4015F-S0024 - C143789 PEC11R-4015F-S0024
+## ENC2 - PEC11R-4015F-N0024 - C22402500 PEC11R-4015F-N0024
 
-- Catalogue: 插件, 插件 Rotary Encoders ROHS
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
-- Pins: A  -> /ENC2_A [1.8x1.8 drill 1]; B  -> /ENC2_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC2-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC2-PadS2) [1.8x1.8 drill 1]
+- Catalogue: 插件-3P,13.4x12.5mm, 插件-3P,13.4x12.5mm Rotary Encoders ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8602881381903187968
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 15.60 mm
+- Pins: A  -> /ENC2_A [1.8x1.8 drill 1]; B  -> /ENC2_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
-## ENC3 - PEC11R-4015F-S0024 - C143789 PEC11R-4015F-S0024
+## ENC3 - PEC11R-4015F-N0024 - C22402500 PEC11R-4015F-N0024
 
-- Catalogue: 插件, 插件 Rotary Encoders ROHS
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
-- Pins: A  -> /ENC3_A [1.8x1.8 drill 1]; B  -> /ENC3_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC3-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC3-PadS2) [1.8x1.8 drill 1]
+- Catalogue: 插件-3P,13.4x12.5mm, 插件-3P,13.4x12.5mm Rotary Encoders ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8602881381903187968
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 15.60 mm
+- Pins: A  -> /ENC3_A [1.8x1.8 drill 1]; B  -> /ENC3_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
-## ENC4 - PEC11R-4015F-S0024 - C143789 PEC11R-4015F-S0024
+## ENC4 - PEC11R-4015F-N0024 - C22402500 PEC11R-4015F-N0024
 
-- Catalogue: 插件, 插件 Rotary Encoders ROHS
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
-- Pins: A  -> /ENC4_A [1.8x1.8 drill 1]; B  -> /ENC4_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC4-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC4-PadS2) [1.8x1.8 drill 1]
+- Catalogue: 插件-3P,13.4x12.5mm, 插件-3P,13.4x12.5mm Rotary Encoders ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8602881381903187968
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 15.60 mm
+- Pins: A  -> /ENC4_A [1.8x1.8 drill 1]; B  -> /ENC4_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 
-## ENC5 - PEC11R-4015F-S0024 - C143789 PEC11R-4015F-S0024
+## ENC5 - PEC11R-4015F-N0024 - C22402500 PEC11R-4015F-N0024
 
-- Catalogue: 插件, 插件 Rotary Encoders ROHS
-- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588891444433707008
-- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 16.80 mm
-- Pins: A  -> /ENC5_A [1.8x1.8 drill 1]; B  -> /ENC5_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]; S1  -> unconnected-(ENC5-PadS1) [1.8x1.8 drill 1]; S2  -> unconnected-(ENC5-PadS2) [1.8x1.8 drill 1]
+- Catalogue: 插件-3P,13.4x12.5mm, 插件-3P,13.4x12.5mm Rotary Encoders ROHS
+- Datasheet: https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8602881381903187968
+- Footprint: PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx on F.Cu, pitch 2.500 mm, courtyard 16.30 x 15.60 mm
+- Pins: A  -> /ENC5_A [1.8x1.8 drill 1]; B  -> /ENC5_B [1.8x1.8 drill 1]; C  -> GND [1.8x1.8 drill 1]; MP  -> GND [2.6x3.4 drill 1.8]; MP  -> GND [2.6x3.4 drill 1.8]
 - To confirm in the datasheet: pin numbering and names against the pins above (polarity: cathode, +, pin 1 mark); package and land pattern against the pads and pitch; body size against the courtyard
 - **Verdict:** 
 

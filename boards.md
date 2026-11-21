@@ -22,8 +22,8 @@ DRC includes schematic parity and refilled zones; KiCad 10.0.2. Each board regen
 - Gate + Comp and Effect hang on their two Dailywell Q27 push buttons soldered into the board instead (lid on their housings,
   10.43 mm above the board; the encoders only pass through 7.5 mm lid holes), shielded RJ45 with power / INT LEDs,
   rim 0.3 mm: [gain-compressor/REPORT.md](gain-compressor/REPORT.md), [effect/REPORT.md](effect/REPORT.md). Effect:
-  encoders on a 30 mm square on the side lines x = 10 / 40 (MIX in the centre), indicators at y = 65, buttons at
-  y = 87.
+  encoders without the push switch on a 32 mm square on the side lines x = 9 / 41 (MIX in the centre), indicators
+  at y = 65, buttons on the side lines at y = 87.
 - On-board LEDs + their jumpers in a row 3 mm above the bottom edge; the bezel lamps' wire pads (`+` = GPIO,
   `−` = GND) below each LED, footswitch wire pads in the bottom corners (GPIO, GND).
 - Presets hangs on its five footswitches: 12.5 mm holes (M12 clearance, ISO 273 fine) at y = 36 mm, 45 mm
@@ -44,6 +44,7 @@ DRC includes schematic parity and refilled zones; KiCad 10.0.2. Each board regen
 | MCP23017-E/SS | C506653 | extended |
 | SRV05-4 (TVS) | C558418 | extended |
 | PEC11R-4015F-S0024 (THT) | C143789 | extended |
+| PEC11R-4015F-N0024 (THT, no switch: Effect) | C22402500 | extended |
 | R-RJ45R08P-A004 (THT) | C385834 | extended |
 | 10k / 470R 0603, 4×10k array (encoder filters), 10n / 100n 0603, 10u 0805, red LED 0603 | C25804 / C23179, C29718, C57112 / C14663, C15850, C2286 | basic |
 | Main: FJ5161BH 0.56" digit, red, common anode (THT) | C8092 | extended |

@@ -150,9 +150,10 @@ def mcp(d, used, scl="SCL", sda="SDA"):
     return dict(u=u, c=c, jp=jp, rr=rr, bits=bits)
 
 
-def encoder(d, label, gpa, gpb, first="B"):
+def encoder(d, label, gpa, gpb, first="B", switch=True):
     """EC11-type encoder (Bourns PEC11R, push switch unused) with the prototype's filter on each channel:
     10k pull-up -> 10k series -> 10n to GND at the MCP side. C and the mounting lugs go to GND.
+    switch=False: the version without the push switch (ENC_N, no S1 / S2 pins); the project needs none.
     A = the MCP 'pinA' channel (gpa), B = 'pinB' (gpb), as in feather/src/bindings.cpp.
 
     4x10k array (R1 = 1-8, R2 = 2-7, R3 = 3-6, R4 = 4-5), laid out so that nothing crosses: the side facing the
@@ -160,7 +161,10 @@ def encoder(d, label, gpa, gpb, first="B"):
     the series outputs on its ends (8 = first, 5 = other) and both pull-ups on +3V3 in the middle (7, 6)."""
     n = d.counters.get("ENC", 0) + 1
     a, b = f"ENC{n}_A", f"ENC{n}_B"
-    e = d.add("ENC", "ENC", {"A": a, "B": b, "C": GND, "S1": None, "S2": None, "MP": GND}, f"enc{n}", silk=label)
+    pins = {"A": a, "B": b, "C": GND, "MP": GND}
+    if switch:
+        pins.update({"S1": None, "S2": None})
+    e = d.add("ENC", "ENC" if switch else "ENC_N", pins, f"enc{n}", silk=label)
     (r1, o1), (r2, o2) = ((b, gpb), (a, gpa)) if first == "B" else ((a, gpa), (b, gpb))
     rn = d.add("RN", "RN10k", {"1": r1, "8": o1, "2": r1, "7": V33, "3": r2, "6": V33, "4": r2, "5": o2}, f"enc{n}")
     ca = d.add("C", "C10n", {"1": gpa, "2": GND}, f"enc{n}")

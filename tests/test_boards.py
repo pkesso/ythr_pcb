@@ -33,7 +33,7 @@ SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (60.0, 1
 OUTLINES = {"gate_comp": "Type_Z-77_1590N1", "effect": "Type_Z-76_Z-77"}
 # pedal encoder squares other than the default 28 mm one at (11..39, 20..48)
 ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)],       # 41 mm square
-            "effect": [(10.0, 22.0), (10.0, 52.0), (40.0, 22.0), (40.0, 52.0)]}        # 30 mm square
+            "effect": [(9.0, 21.0), (9.0, 53.0), (41.0, 21.0), (41.0, 53.0)]}          # 32 mm square
 # extended part numbers per design (each costs a feeder fee); others 4. Main: + the display, blue and orange LEDs
 MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5, "effect": 5}   # Gate + Comp, Effect: + the PCA9511A bus buffer
 TOP_THT_ALLOWED = ("ENC", "J", "H", "DS", "SW")  # on the top side only encoders, wire pads, holes, the 7-segment
@@ -377,7 +377,7 @@ class GateComp(_Templated, unittest.TestCase):
 class Effect(_Templated, unittest.TestCase):
     """Effect: the Type_Z-76_Z-77 template, MODE / ON buttons on the side lines."""
     BOARD, GEN = "effect", "gen_effect"
-    BUTTONS = (((10.0, 87.0), "MODE"), ((40.0, 87.0), "ON"))
+    BUTTONS = (((9.0, 87.0), "MODE"), ((41.0, 87.0), "ON"))
 
 
 class MainLayout(unittest.TestCase):

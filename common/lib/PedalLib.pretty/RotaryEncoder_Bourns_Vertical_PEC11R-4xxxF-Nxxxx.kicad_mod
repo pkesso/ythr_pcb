@@ -1,0 +1,191 @@
+(footprint "RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(tags "rotary encoder PEC11R EC11")
+	(property "Reference" "REF**"
+		(at 0 -7.95 0)
+		(layer "F.SilkS")
+		(uuid "51cee10c-1090-5585-9a74-80790f6301c7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
+		(at 0 9.65 0)
+		(layer "F.Fab")
+		(uuid "02ddaf14-0859-5fa1-a3a9-5f256e7b60d1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c93dfd7a-6959-5547-beca-1a3dea22c3e9")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.1905)
+			)
+		)
+	)
+	(property "Description" "Bourns PEC11R-4xxxF-Nxxxx incremental encoder, vertical, no switch, M7 bushing (Bourns datasheet REV 04/26, recommended layout)"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3ca0f96d-af9b-5c6c-a7f4-49ca3adb19dc")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.1905)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy -6.35 -5.3) (xy -6.35 -6.8) (xy -4.85 -6.8)
+		)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "3dc7b63d-eb6e-59c0-8933-2959f5d50afc")
+	)
+	(fp_poly
+		(pts
+			(xy -6.35 5.3) (xy -6.35 6.8) (xy -4.85 6.8)
+		)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "a67ec85e-1874-5730-91db-3fefc2936fa3")
+	)
+	(fp_poly
+		(pts
+			(xy 6.35 -5.3) (xy 6.35 -6.8) (xy 4.85 -6.8)
+		)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "81b8d2f8-4cfa-5f70-b2b1-b02e9b274a65")
+	)
+	(fp_poly
+		(pts
+			(xy 6.35 5.3) (xy 6.35 6.8) (xy 4.85 6.8)
+		)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "5524224a-3b6b-5562-9de3-65587bb68f2d")
+	)
+	(fp_poly
+		(pts
+			(xy -6.5 -6.95) (xy 6.5 -6.95) (xy 6.5 -1.95) (xy 8.15 -1.95) (xy 8.15 1.95) (xy 6.5 1.95) (xy 6.5 6.95)
+			(xy 3.65 6.95) (xy 3.65 8.65) (xy -3.65 8.65) (xy -3.65 6.95) (xy -6.5 6.95) (xy -6.5 1.95) (xy -8.15 1.95)
+			(xy -8.15 -1.95) (xy -6.5 -1.95) (xy -6.5 -6.95)
+		)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "fd165dff-47b6-5ebe-93a8-f4b04d6022cf")
+	)
+	(fp_rect
+		(start -6.25 -6.7)
+		(end 6.25 6.7)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "a9cac20c-079c-54c4-92b2-291ccb2d4e5a")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 3 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "6d779ad9-aeb5-5d4e-8eee-bb77a6614432")
+	)
+	(pad "A" thru_hole rect
+		(at -2.5 7.5)
+		(size 1.8 1.8)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "bd444b6d-5db7-5439-ad78-7ace3cbb1903")
+	)
+	(pad "B" thru_hole circle
+		(at 2.5 7.5)
+		(size 1.8 1.8)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "ecddd304-9f99-5c78-ade8-e9d4326ffb3b")
+	)
+	(pad "C" thru_hole circle
+		(at 0 7.5)
+		(size 1.8 1.8)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "755c530b-55ca-5897-9e0e-71f413f924d1")
+	)
+	(pad "MP" thru_hole oval
+		(at -6.6 0)
+		(size 2.6 3.4)
+		(drill oval 1.8 2.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2b13b3fa-9432-56c3-8e00-ba9f27085dab")
+	)
+	(pad "MP" thru_hole oval
+		(at 6.6 0)
+		(size 2.6 3.4)
+		(drill oval 1.8 2.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "28923e14-c237-5c4c-860f-6bbcfc0a9e9b")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/../common/lib/PedalLib.3dshapes/RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

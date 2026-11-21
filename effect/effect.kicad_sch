@@ -2849,7 +2849,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "PedalLib:RotaryEncoder_Switch_MP"
+		(symbol "PedalLib:RotaryEncoder_MP"
 			(pin_names
 				(offset 0.254)
 				(hide yes)
@@ -2860,16 +2860,6 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "SW"
-				(at 0 8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "RotaryEncoder_Switch_MP"
 				(at 0 6.35 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2879,8 +2869,18 @@
 					)
 				)
 			)
+			(property "Value" "RotaryEncoder_MP"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
 			(property "Footprint" ""
-				(at -3.81 4.064 0)
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -2891,28 +2891,6 @@
 				)
 			)
 			(property "Datasheet" ""
-				(at 0 -12.7 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch and MP Pin"
-				(at 0 -15.24 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "rotary switch encoder switch push button"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2923,7 +2901,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "RotaryEncoder*Switch*"
+			(property "Description" "Rotary encoder, dual channel, incremental (quadrate) outputs, mounting lugs"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2934,7 +2912,7 @@
 					)
 				)
 			)
-			(symbol "RotaryEncoder_Switch_MP_0_1"
+			(symbol "RotaryEncoder_MP_0_1"
 				(rectangle
 					(start -5.08 5.08)
 					(end 5.08 -5.08)
@@ -2946,210 +2924,9 @@
 						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy -5.08 2.54) (xy -3.81 2.54) (xy -3.81 2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 0) (xy -3.81 0) (xy -3.81 -1.016) (xy -3.302 -2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 -2.54) (xy -3.81 -2.54) (xy -3.81 -2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -4.318 0) (xy -3.81 0) (xy -3.81 1.016) (xy -3.302 2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(circle
-					(center -3.81 0)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.635 -1.778) (xy -0.635 1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -0.381 0)
-					(radius 1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.381 -1.778) (xy -0.381 1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.381 -2.794)
-					(mid -3.0988 -0.0635)
-					(end -0.381 2.667)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.127 1.778) (xy -0.127 -1.778)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 2.921) (xy -0.508 2.667) (xy 0.127 2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 -3.048) (xy -0.508 -2.794) (xy 0.127 -2.413)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 1.016) (xy 3.81 -1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 0) (xy 3.429 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 4.318 1.016)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 4.318 -1.016)
-					(radius 0.127)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 4.318 2.54) (xy 4.318 1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 -2.54) (xy 4.318 -2.54) (xy 4.318 -1.016)
-					)
+					(center 0 0)
+					(radius 2.54)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -3159,7 +2936,7 @@
 					)
 				)
 			)
-			(symbol "RotaryEncoder_Switch_MP_1_1"
+			(symbol "RotaryEncoder_MP_1_1"
 				(pin passive line
 					(at -7.62 2.54 0)
 					(length 2.54)
@@ -3225,42 +3002,6 @@
 						)
 					)
 					(number "MP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 2.54 180)
-					(length 2.54)
-					(name "S1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 -2.54 180)
-					(length 2.54)
-					(name "S2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4649,38 +4390,6 @@
 		)
 	)
 	(no_connect
-		(at 149.86 198.12)
-		(uuid "4a48b141-2ae7-500e-ad57-505daa4f0c59")
-	)
-	(no_connect
-		(at 149.86 259.08)
-		(uuid "545f02c2-bc97-5d7b-9f28-f331e837f78c")
-	)
-	(no_connect
-		(at 149.86 292.1)
-		(uuid "5c0f311e-44a8-5b05-a88b-aefd3db95117")
-	)
-	(no_connect
-		(at 149.86 193.04)
-		(uuid "75229b68-fd68-537d-9ee5-dc8c7af043ec")
-	)
-	(no_connect
-		(at 149.86 160.02)
-		(uuid "799b74ef-f725-5ede-87a1-d128fe6b4ee6")
-	)
-	(no_connect
-		(at 149.86 264.16)
-		(uuid "8cb9b0b7-d594-5fb9-9b24-f24c0d4d3945")
-	)
-	(no_connect
-		(at 149.86 165.1)
-		(uuid "ab7a5946-42c7-5248-a1b0-412c56dec7de")
-	)
-	(no_connect
-		(at 149.86 231.14)
-		(uuid "bd498cdb-712e-591a-8e29-2efc3b1e56ae")
-	)
-	(no_connect
 		(at 55.88 528.32)
 		(uuid "c51beba9-811c-5efd-a24e-89d22d5dae2c")
 	)
@@ -4689,16 +4398,8 @@
 		(uuid "c73e2975-8ad6-525f-b2cc-2c1c9805abf7")
 	)
 	(no_connect
-		(at 149.86 297.18)
-		(uuid "ce17e2be-7efa-5574-a1e5-ecb8b17adfe6")
-	)
-	(no_connect
 		(at 193.04 45.72)
 		(uuid "e0b43064-7ebc-537c-8e9f-17ef52025f72")
-	)
-	(no_connect
-		(at 149.86 226.06)
-		(uuid "ed4bc0c0-c446-5e62-aa14-1d38bca50ac5")
 	)
 	(no_connect
 		(at 106.68 528.32)
@@ -4733,16 +4434,6 @@
 			(justify right bottom)
 		)
 		(uuid "0dcfd9b7-e8d2-5370-98bb-a8338ba06701")
-	)
-	(label "ENC3_A"
-		(at 198.12 233.68 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0ef09873-83b0-5dc0-aee5-ba364debad18")
 	)
 	(label "LED_PWR_K"
 		(at 132.08 91.44 180)
@@ -4793,6 +4484,16 @@
 			(justify right bottom)
 		)
 		(uuid "1702d327-306f-54e0-a3e7-9103e1c09e52")
+	)
+	(label "ENC2_B"
+		(at 187.96 200.66 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1c99d8e8-ba2b-599a-898b-8ed05f8dd819")
 	)
 	(label "ENC3_B"
 		(at 134.62 231.14 180)
@@ -4854,25 +4555,15 @@
 		)
 		(uuid "27cc33c3-406a-5583-901e-e80ca0a13baf")
 	)
-	(label "GPA4"
-		(at 198.12 256.54 90)
+	(label "GPB5"
+		(at 187.96 289.56 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "28703d3f-8629-5893-905c-af1830a52530")
-	)
-	(label "ENC5_A"
-		(at 198.12 299.72 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "287fe797-2098-51b0-8530-8594bdaa2ddf")
+		(uuid "282dfc1c-22b5-59a9-a0f2-26472288555f")
 	)
 	(label "LED3_A"
 		(at 54.61 378.46 0)
@@ -4974,7 +4665,7 @@
 		)
 		(uuid "345ef672-4f6f-50c0-828d-e5df56d510d9")
 	)
-	(label "ENC3_B"
+	(label "ENC3_A"
 		(at 193.04 233.68 270)
 		(effects
 			(font
@@ -4994,7 +4685,7 @@
 		)
 		(uuid "347d17df-5408-5e73-a068-b872123ccdef")
 	)
-	(label "GPB4"
+	(label "+3V3"
 		(at 190.5 256.54 90)
 		(effects
 			(font
@@ -5024,6 +4715,16 @@
 		)
 		(uuid "355a797b-1a71-5449-a89f-10da3bf85250")
 	)
+	(label "ENC5_B"
+		(at 187.96 299.72 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3a4c61ca-2608-57b3-8220-a04e877b5e5d")
+	)
 	(label "SDA_L"
 		(at 132.08 39.37 270)
 		(effects
@@ -5033,6 +4734,16 @@
 			(justify right bottom)
 		)
 		(uuid "3afa509e-00be-5574-95f2-9eb302b92cbe")
+	)
+	(label "ENC4_B"
+		(at 187.96 266.7 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3afe7491-d6ef-5d64-8e9c-f4bdf4ba6ede")
 	)
 	(label "+3V3"
 		(at 193.04 256.54 90)
@@ -5124,7 +4835,7 @@
 		)
 		(uuid "43403789-7579-5a9f-ab8d-dc2b55c05f87")
 	)
-	(label "ENC1_B"
+	(label "ENC1_A"
 		(at 193.04 167.64 270)
 		(effects
 			(font
@@ -5164,17 +4875,7 @@
 		)
 		(uuid "45a60185-24a6-5912-8576-c0f91865f2fe")
 	)
-	(label "ENC2_A"
-		(at 198.12 200.66 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "46dea685-8098-57ab-b167-fc2e69309a49")
-	)
-	(label "GPB5"
+	(label "+3V3"
 		(at 190.5 289.56 90)
 		(effects
 			(font
@@ -5214,7 +4915,7 @@
 		)
 		(uuid "4e3d07a3-8b0e-5c95-8234-a2683ce0c294")
 	)
-	(label "+3V3"
+	(label "GPA4"
 		(at 195.58 256.54 90)
 		(effects
 			(font
@@ -5234,7 +4935,7 @@
 		)
 		(uuid "52662139-7285-5a44-b11c-33743fd0c30f")
 	)
-	(label "ENC5_B"
+	(label "ENC5_A"
 		(at 193.04 299.72 270)
 		(effects
 			(font
@@ -5284,7 +4985,7 @@
 		)
 		(uuid "597c159e-c9d3-518e-93ba-752334604100")
 	)
-	(label "GPB1"
+	(label "+3V3"
 		(at 190.5 157.48 90)
 		(effects
 			(font
@@ -5354,7 +5055,7 @@
 		)
 		(uuid "60c786ea-bbb2-561e-88f7-ff09561a01b4")
 	)
-	(label "+3V3"
+	(label "GPA5"
 		(at 195.58 289.56 90)
 		(effects
 			(font
@@ -5464,16 +5165,6 @@
 		)
 		(uuid "732eb451-4a28-55ae-9ca1-cd130095cbc6")
 	)
-	(label "GPA5"
-		(at 198.12 289.56 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7a0828bd-24e7-5b17-9b99-222753ea5b64")
-	)
 	(label "LED1_A"
 		(at 54.61 322.58 0)
 		(effects
@@ -5493,6 +5184,16 @@
 			(justify right bottom)
 		)
 		(uuid "7b2becd8-0c2c-572f-ac4a-24a9b973e28d")
+	)
+	(label "GPB3"
+		(at 187.96 223.52 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7e58f04c-c763-58dd-8b58-2c1aa247d5ea")
 	)
 	(label "INT"
 		(at 281.94 452.12 180)
@@ -5604,7 +5305,7 @@
 		)
 		(uuid "8ce1b603-807c-5a47-8d72-5d094bd49123")
 	)
-	(label "ENC4_B"
+	(label "ENC4_A"
 		(at 193.04 266.7 270)
 		(effects
 			(font
@@ -5664,6 +5365,16 @@
 		)
 		(uuid "90804de6-1a1e-583d-8dcb-a7f8e6d9aeba")
 	)
+	(label "GPB4"
+		(at 187.96 256.54 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "90c245b3-7d61-5b78-83ae-c31a7898996a")
+	)
 	(label "SCL_L"
 		(at 91.44 39.37 270)
 		(effects
@@ -5683,6 +5394,16 @@
 			(justify right bottom)
 		)
 		(uuid "91d1fcbd-d31d-5790-bcc3-a0d363e4a29c")
+	)
+	(label "GPB1"
+		(at 187.96 157.48 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92dd5f7f-56c9-594b-8858-66a247a0c4d4")
 	)
 	(label "GPA5"
 		(at 48.26 288.29 90)
@@ -5734,7 +5455,7 @@
 		)
 		(uuid "9bc71ddd-eef6-5f22-aeb6-dcfa69b1e51e")
 	)
-	(label "+3V3"
+	(label "GPA3"
 		(at 195.58 223.52 90)
 		(effects
 			(font
@@ -5824,16 +5545,6 @@
 		)
 		(uuid "b027e910-4d52-5659-8fce-6b2e90dbe28e")
 	)
-	(label "ENC4_A"
-		(at 198.12 266.7 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b091efd6-8d77-5a1f-a6ea-71b39d06bcbc")
-	)
 	(label "A1"
 		(at 281.94 474.98 180)
 		(effects
@@ -5894,16 +5605,6 @@
 		)
 		(uuid "b4b653f3-ae44-5db7-80bd-1de2cdc1cec5")
 	)
-	(label "GPA1"
-		(at 198.12 157.48 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b4c30daf-8edb-5a67-9a08-578bb1b1849b")
-	)
 	(label "ENC4_B"
 		(at 134.62 264.16 180)
 		(effects
@@ -5924,7 +5625,7 @@
 		)
 		(uuid "b7e6984f-bcc6-5d46-b82a-956607bfff4a")
 	)
-	(label "+3V3"
+	(label "GPA1"
 		(at 195.58 157.48 90)
 		(effects
 			(font
@@ -5974,16 +5675,6 @@
 		)
 		(uuid "be051a58-2e22-5613-9c47-552265c0ef02")
 	)
-	(label "GPA2"
-		(at 198.12 190.5 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "be0bb21d-63b1-597d-9b30-4aa595ae3450")
-	)
 	(label "+3V3"
 		(at 241.3 433.07 90)
 		(effects
@@ -6024,7 +5715,7 @@
 		)
 		(uuid "c3434ed8-c2c7-5adf-88b8-6e54d8f73690")
 	)
-	(label "ENC2_B"
+	(label "ENC2_A"
 		(at 193.04 200.66 270)
 		(effects
 			(font
@@ -6134,6 +5825,16 @@
 		)
 		(uuid "cf6fff64-0b9a-5372-9967-2c493778273d")
 	)
+	(label "ENC3_B"
+		(at 187.96 233.68 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cfa27cb9-a0b4-5c80-bb6c-27c5f659dad9")
+	)
 	(label "SDA"
 		(at 287.02 80.01 270)
 		(effects
@@ -6164,17 +5865,7 @@
 		)
 		(uuid "d130585b-9951-51dd-8859-baeb5a8a64f5")
 	)
-	(label "GPA3"
-		(at 198.12 223.52 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d1f57659-ae50-51a3-a63a-47164bf3c089")
-	)
-	(label "+3V3"
+	(label "GPA2"
 		(at 195.58 190.5 90)
 		(effects
 			(font
@@ -6274,7 +5965,7 @@
 		)
 		(uuid "e22e6cc5-1ac7-5db9-a0ee-e9ec7e67ecbd")
 	)
-	(label "GPB3"
+	(label "+3V3"
 		(at 190.5 223.52 90)
 		(effects
 			(font
@@ -6293,6 +5984,16 @@
 			(justify left bottom)
 		)
 		(uuid "e4fb9349-59a6-5487-8648-1efcb8af45f2")
+	)
+	(label "GPB2"
+		(at 187.96 190.5 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e502e9e1-44c7-54a4-896b-02ceaef2a417")
 	)
 	(label "ENC3_A"
 		(at 195.58 233.68 270)
@@ -6344,7 +6045,7 @@
 		)
 		(uuid "edecf724-77da-5ae0-8e8a-7feb5bb40dfd")
 	)
-	(label "GPB2"
+	(label "+3V3"
 		(at 190.5 190.5 90)
 		(effects
 			(font
@@ -6363,6 +6064,16 @@
 			(justify right bottom)
 		)
 		(uuid "f361f618-22ad-500c-9fd3-f61d4e584daf")
+	)
+	(label "ENC1_B"
+		(at 187.96 167.64 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f3c035f1-ac8d-5617-976b-cb6372e30fb5")
 	)
 	(label "+3V3"
 		(at 294.64 431.8 90)
@@ -6383,16 +6094,6 @@
 			(justify right bottom)
 		)
 		(uuid "f7e68c7d-ac73-5a2f-870a-13e748f8567f")
-	)
-	(label "ENC1_A"
-		(at 198.12 167.64 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f86dd9e2-e736-5892-8c87-ee3d302b9dc4")
 	)
 	(label "GPB4"
 		(at 91.44 257.81 90)
@@ -7736,7 +7437,7 @@
 	)
 	(symbol
 		(lib_id "PedalLib:R_Pack04")
-		(at 195.58 195.58 0)
+		(at 193.04 195.58 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7746,7 +7447,7 @@
 		(dnp no)
 		(uuid "02b8265e-4c78-5e4b-8b2c-e380e34e479f")
 		(property "Reference" "RN2"
-			(at 195.58 187.96 0)
+			(at 193.04 187.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7756,7 +7457,7 @@
 			)
 		)
 		(property "Value" "4x10k"
-			(at 195.58 203.2 0)
+			(at 193.04 203.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7766,7 +7467,7 @@
 			)
 		)
 		(property "Footprint" "PedalLib:R_Array_Convex_4x0603"
-			(at 195.58 195.58 0)
+			(at 193.04 195.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7777,7 +7478,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 195.58 195.58 0)
+			(at 193.04 195.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7788,7 +7489,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 195.58 195.58 0)
+			(at 193.04 195.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7799,7 +7500,7 @@
 			)
 		)
 		(property "LCSC" "C29718"
-			(at 195.58 195.58 0)
+			(at 193.04 195.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8899,7 +8600,7 @@
 	)
 	(symbol
 		(lib_id "PedalLib:R_Pack04")
-		(at 195.58 261.62 0)
+		(at 193.04 261.62 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8909,7 +8610,7 @@
 		(dnp no)
 		(uuid "1b562fea-b269-5ec2-a826-82ba05fcf452")
 		(property "Reference" "RN4"
-			(at 195.58 254 0)
+			(at 193.04 254 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8919,7 +8620,7 @@
 			)
 		)
 		(property "Value" "4x10k"
-			(at 195.58 269.24 0)
+			(at 193.04 269.24 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8929,7 +8630,7 @@
 			)
 		)
 		(property "Footprint" "PedalLib:R_Array_Convex_4x0603"
-			(at 195.58 261.62 0)
+			(at 193.04 261.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8940,7 +8641,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 195.58 261.62 0)
+			(at 193.04 261.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8951,7 +8652,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 195.58 261.62 0)
+			(at 193.04 261.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8962,7 +8663,7 @@
 			)
 		)
 		(property "LCSC" "C29718"
-			(at 195.58 261.62 0)
+			(at 193.04 261.62 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9536,7 +9237,7 @@
 	)
 	(symbol
 		(lib_id "PedalLib:R_Pack04")
-		(at 195.58 162.56 0)
+		(at 193.04 162.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9546,7 +9247,7 @@
 		(dnp no)
 		(uuid "3457b624-ab1f-54fb-b8d3-ad5ac45580c9")
 		(property "Reference" "RN1"
-			(at 195.58 154.94 0)
+			(at 193.04 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9556,7 +9257,7 @@
 			)
 		)
 		(property "Value" "4x10k"
-			(at 195.58 170.18 0)
+			(at 193.04 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9566,7 +9267,7 @@
 			)
 		)
 		(property "Footprint" "PedalLib:R_Array_Convex_4x0603"
-			(at 195.58 162.56 0)
+			(at 193.04 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9577,7 +9278,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 195.58 162.56 0)
+			(at 193.04 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9588,7 +9289,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 195.58 162.56 0)
+			(at 193.04 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9599,7 +9300,7 @@
 			)
 		)
 		(property "LCSC" "C29718"
-			(at 195.58 162.56 0)
+			(at 193.04 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9913,7 +9614,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PedalLib:RotaryEncoder_Switch_MP")
+		(lib_id "PedalLib:RotaryEncoder_MP")
 		(at 142.24 195.58 0)
 		(unit 1)
 		(body_style 1)
@@ -9933,7 +9634,7 @@
 				)
 			)
 		)
-		(property "Value" "PEC11R-4015F-S0024"
+		(property "Value" "PEC11R-4015F-N0024"
 			(at 142.24 205.74 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9943,7 +9644,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
+		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
 			(at 142.24 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -9976,7 +9677,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C143789"
+		(property "LCSC" "C22402500"
 			(at 142.24 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -9998,12 +9699,6 @@
 		)
 		(pin "MP"
 			(uuid "31835b8a-d32d-574d-a4c0-fa5d3de34d92")
-		)
-		(pin "S1"
-			(uuid "ca6dd24a-a9cc-5b7f-b4ea-545b1261f5d0")
-		)
-		(pin "S2"
-			(uuid "ad7c6463-421d-5737-8cfc-065e03014108")
 		)
 		(instances
 			(project "effect"
@@ -10182,7 +9877,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PedalLib:RotaryEncoder_Switch_MP")
+		(lib_id "PedalLib:RotaryEncoder_MP")
 		(at 142.24 228.6 0)
 		(unit 1)
 		(body_style 1)
@@ -10202,7 +9897,7 @@
 				)
 			)
 		)
-		(property "Value" "PEC11R-4015F-S0024"
+		(property "Value" "PEC11R-4015F-N0024"
 			(at 142.24 238.76 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10212,7 +9907,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
+		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
 			(at 142.24 228.6 0)
 			(hide yes)
 			(show_name no)
@@ -10245,7 +9940,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C143789"
+		(property "LCSC" "C22402500"
 			(at 142.24 228.6 0)
 			(hide yes)
 			(show_name no)
@@ -10267,12 +9962,6 @@
 		)
 		(pin "MP"
 			(uuid "71a56ed3-fcd1-5126-8294-d270146c2104")
-		)
-		(pin "S1"
-			(uuid "a7a12076-ae40-52b7-84b7-0cdeb90ca37b")
-		)
-		(pin "S2"
-			(uuid "fbe4e8e1-5e93-50c4-93b7-04403b4b2d6c")
 		)
 		(instances
 			(project "effect"
@@ -11012,7 +10701,7 @@
 	)
 	(symbol
 		(lib_id "PedalLib:R_Pack04")
-		(at 195.58 294.64 0)
+		(at 193.04 294.64 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11022,7 +10711,7 @@
 		(dnp no)
 		(uuid "6fa57b81-374f-5c82-a08c-d9fe7db2a2e5")
 		(property "Reference" "RN5"
-			(at 195.58 287.02 0)
+			(at 193.04 287.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11032,7 +10721,7 @@
 			)
 		)
 		(property "Value" "4x10k"
-			(at 195.58 302.26 0)
+			(at 193.04 302.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11042,7 +10731,7 @@
 			)
 		)
 		(property "Footprint" "PedalLib:R_Array_Convex_4x0603"
-			(at 195.58 294.64 0)
+			(at 193.04 294.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11053,7 +10742,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 195.58 294.64 0)
+			(at 193.04 294.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11064,7 +10753,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 195.58 294.64 0)
+			(at 193.04 294.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11075,7 +10764,7 @@
 			)
 		)
 		(property "LCSC" "C29718"
-			(at 195.58 294.64 0)
+			(at 193.04 294.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11371,7 +11060,7 @@
 	)
 	(symbol
 		(lib_id "PedalLib:R_Pack04")
-		(at 195.58 228.6 0)
+		(at 193.04 228.6 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11381,7 +11070,7 @@
 		(dnp no)
 		(uuid "82eec2ef-4e2f-50cf-a230-6e022ef483e8")
 		(property "Reference" "RN3"
-			(at 195.58 220.98 0)
+			(at 193.04 220.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11391,7 +11080,7 @@
 			)
 		)
 		(property "Value" "4x10k"
-			(at 195.58 236.22 0)
+			(at 193.04 236.22 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11401,7 +11090,7 @@
 			)
 		)
 		(property "Footprint" "PedalLib:R_Array_Convex_4x0603"
-			(at 195.58 228.6 0)
+			(at 193.04 228.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11412,7 +11101,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 195.58 228.6 0)
+			(at 193.04 228.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11423,7 +11112,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 195.58 228.6 0)
+			(at 193.04 228.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11434,7 +11123,7 @@
 			)
 		)
 		(property "LCSC" "C29718"
-			(at 195.58 228.6 0)
+			(at 193.04 228.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11478,7 +11167,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PedalLib:RotaryEncoder_Switch_MP")
+		(lib_id "PedalLib:RotaryEncoder_MP")
 		(at 142.24 294.64 0)
 		(unit 1)
 		(body_style 1)
@@ -11498,7 +11187,7 @@
 				)
 			)
 		)
-		(property "Value" "PEC11R-4015F-S0024"
+		(property "Value" "PEC11R-4015F-N0024"
 			(at 142.24 304.8 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11508,7 +11197,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
+		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
 			(at 142.24 294.64 0)
 			(hide yes)
 			(show_name no)
@@ -11541,7 +11230,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C143789"
+		(property "LCSC" "C22402500"
 			(at 142.24 294.64 0)
 			(hide yes)
 			(show_name no)
@@ -11563,12 +11252,6 @@
 		)
 		(pin "MP"
 			(uuid "5e3a082b-9fe7-5f11-8c68-5af57ae57b7e")
-		)
-		(pin "S1"
-			(uuid "132a067e-82b2-597f-a500-0304d9bdd8f3")
-		)
-		(pin "S2"
-			(uuid "5835f7dd-929e-5a47-b243-5407a1a005b1")
 		)
 		(instances
 			(project "effect"
@@ -13789,7 +13472,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PedalLib:RotaryEncoder_Switch_MP")
+		(lib_id "PedalLib:RotaryEncoder_MP")
 		(at 142.24 162.56 0)
 		(unit 1)
 		(body_style 1)
@@ -13809,7 +13492,7 @@
 				)
 			)
 		)
-		(property "Value" "PEC11R-4015F-S0024"
+		(property "Value" "PEC11R-4015F-N0024"
 			(at 142.24 172.72 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13819,7 +13502,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
+		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
 			(at 142.24 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -13852,7 +13535,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C143789"
+		(property "LCSC" "C22402500"
 			(at 142.24 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -13874,12 +13557,6 @@
 		)
 		(pin "MP"
 			(uuid "19abb0bb-4137-51a0-80db-5dad94ba4330")
-		)
-		(pin "S1"
-			(uuid "8949c230-3b4e-50ab-8ff4-0c49d62bca0c")
-		)
-		(pin "S2"
-			(uuid "28fd7448-aa9c-5f3e-912d-901eee48a7c9")
 		)
 		(instances
 			(project "effect"
@@ -13981,7 +13658,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PedalLib:RotaryEncoder_Switch_MP")
+		(lib_id "PedalLib:RotaryEncoder_MP")
 		(at 142.24 261.62 0)
 		(unit 1)
 		(body_style 1)
@@ -14001,7 +13678,7 @@
 				)
 			)
 		)
-		(property "Value" "PEC11R-4015F-S0024"
+		(property "Value" "PEC11R-4015F-N0024"
 			(at 142.24 271.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14011,7 +13688,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx"
+		(property "Footprint" "PedalLib:RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx"
 			(at 142.24 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -14044,7 +13721,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C143789"
+		(property "LCSC" "C22402500"
 			(at 142.24 261.62 0)
 			(hide yes)
 			(show_name no)
@@ -14066,12 +13743,6 @@
 		)
 		(pin "MP"
 			(uuid "cc2cbefa-76d9-5592-bd7f-1be4985fcea6")
-		)
-		(pin "S1"
-			(uuid "d90a3f73-3f56-5b86-9879-3d1e9a52480e")
-		)
-		(pin "S2"
-			(uuid "d3cf61c4-29d0-5036-b10b-b9133687840a")
 		)
 		(instances
 			(project "effect"

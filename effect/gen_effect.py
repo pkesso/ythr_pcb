@@ -2,9 +2,9 @@
 
 Pin assignment as in feather/doc/wiring.md (Effect - 0x23). Outline: the enclosure template Type_Z-76_Z-77
 (common/templates/Type_Z-76_Z-77.kicad_pcb, 50 x 104 mm, narrow tabs 37 mm wide at both ends); top edge = RJ45
-side. Encoders in a 30 mm square on the side lines x = 10 / 40 (FDBK / DEPTH on top, PR_DL / SPEED below, names under
-the knobs), MIX in its centre; the MCP23017 left of MIX, the address jumpers right of it. The four indicators in a row
-below the square, then the two Q27 push buttons soldered into the board (MODE left, ON right): the board hangs on
+side. Encoders without the push switch (not needed) in a 32 mm square on the side lines x = 9 / 41 (FDBK / DEPTH on
+top, PR_DL / SPEED below, names under the knobs), MIX in its centre; the MCP23017 left of MIX, the address jumpers
+right of it. The four indicators in a row below the square, then the two Q27 push buttons soldered into the board (MODE left, ON right): the board hangs on
 them (their nuts on the lid, the lid on their housings 10.43 mm above the board), the encoders pass through 7.5 mm
 holes in the lid. The bus enters through the shielded RJ45 with two LEDs (power, INT), a PCA9511A hot-swap buffer
 and a ferrite bead; the buttons are debounced in hardware; test pads on the bottom side. Purple solder mask.
@@ -22,9 +22,9 @@ from gen.layout import place_bus, place_indicators, place_filter, place_addr_jum
 from gen.outline import Outline  # noqa: E402
 
 NAME, REV = "YTHR EFFECT", "0"   # the one place for the board's name and revision (silkscreen, title block)
-SIDE = 15.0                      # side lines 15 mm either side of the centre line (30 mm apart, even for drilling)
-ENC_Y = (22.0, 52.0)             # the square's rows; MIX in its centre
-LED_Y = 65.0                     # indicator row (second quarter)
+SIDE = 16.0                      # side lines 16 mm either side of the centre line (32 mm apart, even for drilling)
+ENC_Y = (21.0, 53.0)             # the square's rows; MIX in its centre
+LED_Y = 65.0                     # indicator row (second quarter), on x = 10 ... 40
 BTN_Y = 87.0                     # Q27 row (first quarter; lower, they reach the rim round the corner notches)
 
 
@@ -42,7 +42,7 @@ def design():
     encs = []
     for label, a, bb in (("FDBK", "GPA1", "GPB1"), ("DEPTH", "GPA2", "GPB2"), ("MIX", "GPA3", "GPB3"),
                          ("PR_DL", "GPA4", "GPB4"), ("SPEED", "GPA5", "GPB5")):
-        encs.append(encoder(d, label, a, bb))
+        encs.append(encoder(d, label, a, bb, switch=False))
         encs[-1]["enc"].silk_at = "below"    # the knob's name under it, the reference designator above
         used[a], used[bb] = a, bb
     leds = []
@@ -90,13 +90,14 @@ def design():
     P(mix["ca"].ref, cx - 0.8, my + 14.0, 90)
     P(mix["cb"].ref, cx + 0.8, my + 14.0, 90)
     # MCP23017 left of MIX, between the left encoders; address jumpers and the RESET pull-up right of MIX
-    P(m["u"].ref, xl + 1.8, my, 0)
-    P(m["c"].ref, xl + 4.5, my - 6.3, 0)
-    place_addr_jumpers(d, m, xr, my - 2.8)
-    P(m["rr"].ref, xr + 4.4, my + 2.8, 90)
-    d.texts.append(("ADDR 0x23", xr, my + 6.4, 1.0, "F.SilkS"))
-    # indicators in a row on the side lines and between them: [JP][R][LED], the lamp's wire pads below
-    place_indicators(d, leds, [xl + 10.0 * k for k in range(4)], y=LED_Y,
+    P(m["u"].ref, 11.8, my, 0)              # clear of the rim round the mounting hole at (3, 34)
+    P(m["c"].ref, 14.5, my - 6.3, 0)
+    place_addr_jumpers(d, m, 40.0, my - 2.8)
+    P(m["rr"].ref, 44.4, my + 2.8, 90)
+    d.texts.append(("ADDR 0x23", 40.0, my + 6.4, 1.0, "F.SilkS"))
+    # indicators in a row, 10 mm apart (on the side lines the outer jumpers would reach the holes' rim):
+    # [JP][R][LED], the lamp's wire pads below
+    place_indicators(d, leds, [cx - 15.0 + 10.0 * k for k in range(4)], y=LED_Y,
                      names=["CHORUS", "FLANGER", "PHASER", "TREMOLO"])
     # Q27 push buttons on the side lines, their names under them as large as the board's name on the back
     for btn, x, name, dx in zip(buttons, (xl, xr), ("MODE", "ON"), (1.5, 0.0)):

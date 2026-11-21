@@ -13,6 +13,10 @@ CATALOG = {
     "ENC": dict(symbol="RotaryEncoder_Switch_MP", footprint="RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Sxxxx",
                 value="PEC11R-4015F-S0024", lcsc="C143789", datasheet="https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf",
                 jlc="extended, THT"),
+    # the same encoder without the push switch (no S1 / S2 pins): its pins keep clear of a narrow board's rim
+    "ENC_N": dict(symbol="RotaryEncoder_MP", footprint="RotaryEncoder_Bourns_Vertical_PEC11R-4xxxF-Nxxxx",
+                  value="PEC11R-4015F-N0024", lcsc="C22402500",
+                  datasheet="https://www.bourns.com/docs/Product-Datasheets/PEC11R.pdf", jlc="extended, THT"),
     "RJ45": dict(symbol="8P8C", footprint="RJ45_Ckmtw_R-RJ45R08P-A004_Horizontal", value="R-RJ45R08P-A004",
                  lcsc="C385834", datasheet="", jlc="extended, THT"),
     # shielded, two LEDs (Ckmtw R-RJ45R08P-C004, LCSC C386759): soldered by hand, so not in the BOM (no cost counted)
