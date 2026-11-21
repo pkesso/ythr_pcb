@@ -24,7 +24,7 @@ How the boards are generated and tested: [common/README.md](common/README.md).
 |-----|-------|----------|------------|-------------|
 | `main/` | Main: Main 1 + Main 2 + 7-seg + Feather + bus hub | 0x20, 0x21 | 180 × 110 mm | green |
 | `gain-compressor/` | Gate + Compressor (Rev0: hot-swap I²C buffer, VCC ferrite, debounced Q27 push buttons on the board, RJ45 with LEDs) | 0x22 | 60 × 116 mm (Hammond 1590N1 template) | yellow |
-| `effect/` | Effect | 0x23 | 50 × 65 mm | purple |
+| `effect/` | Effect (Rev0: Q27 push buttons on the board, RJ45 with LEDs, hot-swap I²C buffer, VCC ferrite) | 0x23 | 50 × 104 mm (template Type_Z-76_Z-77) | purple |
 | `echo/` | Echo | 0x24 | 50 × 65 mm | white (black silk) |
 | `rever/` | Reverb | 0x25 | 50 × 65 mm | blue |
 | `presets/` | Presets | 0x26 | 200 × 50 mm | black |
@@ -82,6 +82,9 @@ Based on Adafruit #5346.
 
 ## Encoder (EC11)
 
+- **Requirement (all boards): 20 pulses per turn, knurled "plum handle" shaft** (serrated, for push-on
+  knobs). The PEC11R-4015F-S0024 on the boards today (24 pulses, D-shaft) does not meet it: the encoder is
+  to be replaced when the boards are regenerated.
 - EC11 with push switch (Bourns PEC11R-4015F-S0024), **15 mm D-shaft**, on the board. The push switch is
   not connected, except on Echo: pushing TIME is a second TAP (switch in parallel with the TAP button).
 - Pinout A–C–B (C = common → GND); mounting lugs → GND.

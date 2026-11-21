@@ -1,0 +1,72 @@
+ref,front,back,source
+C1,1.25,0.00,model
+C10,0.80,0.00,model
+C11,0.80,0.00,model
+C12,0.80,0.00,model
+C13,0.80,0.00,model
+C14,0.80,0.00,model
+C15,0.80,0.00,model
+C2,0.80,0.00,model
+C3,0.80,0.00,model
+C4,0.80,0.00,model
+C5,0.80,0.00,model
+C6,0.80,0.00,model
+C7,0.80,0.00,model
+C8,0.80,0.00,model
+C9,0.80,0.00,model
+D1,1.10,0.00,model
+D2,1.10,0.00,model
+D3,1.10,0.00,model
+D4,1.10,0.00,model
+ENC1,10.43,3.50,"model, cut at the panel"
+ENC2,10.43,3.50,"model, cut at the panel"
+ENC3,10.43,3.50,"model, cut at the panel"
+ENC4,10.43,3.50,"model, cut at the panel"
+ENC5,10.43,3.50,"model, cut at the panel"
+FB1,0.80,0.00,model
+J1,3.00,13.10,model
+J2,0.00,0.00,given
+J3,0.00,0.00,given
+J4,0.00,0.00,given
+J5,0.00,0.00,given
+J6,0.00,0.00,given
+J7,0.00,0.00,given
+JP1,0.00,0.00,given
+JP2,0.00,0.00,given
+JP3,0.00,0.00,given
+JP4,0.00,0.00,given
+JP5,0.00,0.00,given
+JP6,0.00,0.00,given
+JP7,0.00,0.00,given
+JP8,0.00,0.00,given
+R1,0.45,0.00,model
+R10,0.45,0.00,model
+R11,0.45,0.00,model
+R12,0.45,0.00,model
+R13,0.45,0.00,model
+R14,0.45,0.00,model
+R15,0.45,0.00,model
+R2,0.45,0.00,model
+R3,0.45,0.00,model
+R4,0.45,0.00,model
+R5,0.45,0.00,model
+R6,0.45,0.00,model
+R7,0.45,0.00,model
+R8,0.45,0.00,model
+R9,0.45,0.00,model
+RN1,0.50,0.00,model
+RN2,0.50,0.00,model
+RN3,0.50,0.00,model
+RN4,0.50,0.00,model
+RN5,0.50,0.00,model
+SW1,10.43,5.00,"model, cut at the panel"
+SW2,10.43,5.00,"model, cut at the panel"
+TP1,0.00,0.00,given
+TP2,0.00,0.00,given
+TP3,0.00,0.00,given
+TP4,0.00,0.00,given
+TP5,0.00,0.00,given
+TP6,0.00,0.00,given
+U1,1.55,0.00,model
+U2,1.10,0.00,model
+U3,2.10,0.00,model

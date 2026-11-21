@@ -28,15 +28,16 @@ import jlcpcb_rules  # noqa: E402
 JLC = dict(track=0.127, via_drill=0.3, via_diameter=0.45, via_annular=0.13, pth_drill=0.3, pth_annular=0.15,
            npth_drill=0.5, silk_height=1.0, silk_thickness=0.15)
 PEDAL_SIZE = (50.0, 65.0)
-SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (60.0, 116.0)}
+SIZES = {"presets": (200.0, 50.0), "main": (180.0, 110.0), "gate_comp": (60.0, 116.0), "effect": (50.0, 104.0)}
 # boards cut to an enclosure template (common/templates): parts and copper stay inside its outline
-OUTLINES = {"gate_comp": "Type_Z-77_1590N1"}
+OUTLINES = {"gate_comp": "Type_Z-77_1590N1", "effect": "Type_Z-76_Z-77"}
 # pedal encoder squares other than the default 28 mm one at (11..39, 20..48)
-ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)]}       # 41 mm square
+ENC_GRID = {"gate_comp": [(9.5, 18.0), (9.5, 59.0), (50.5, 18.0), (50.5, 59.0)],       # 41 mm square
+            "effect": [(10.0, 22.0), (10.0, 52.0), (40.0, 22.0), (40.0, 52.0)]}        # 30 mm square
 # extended part numbers per design (each costs a feeder fee); others 4. Main: + the display, blue and orange LEDs
-MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5}       # Gate + Comp: + the PCA9511A bus buffer
+MAX_EXTENDED = {"presets": 3, "main": 6, "gate_comp": 5, "effect": 5}   # Gate + Comp, Effect: + the PCA9511A bus buffer
 TOP_THT_ALLOWED = ("ENC", "J", "H", "DS", "SW")  # on the top side only encoders, wire pads, holes, the 7-segment
-#                                                   digits and Gate + Comp's Q27 buttons (the lid rests on them)
+#                                                   digits and the Q27 buttons (Gate + Comp, Effect: the lid rests on them)
 #                                              and the 7-segment digits (8 mm: their faces reach the panel window)
 
 
@@ -174,18 +175,19 @@ class Mechanics(unittest.TestCase):
                 self.assertEqual([], out)
 
     def test_encoder_grid(self):
-        """Pedal encoders: a 28 mm square (the 5th in its centre), knobs at least 19 mm apart, lugs on GND."""
+        """Pedal encoders: a square (28 mm by default; the 5th in its centre), knobs at least 19 mm apart, lugs on
+        GND."""
         for d, b in boards():
             encs = [fp for fp in b.footprints if fp.ref.startswith("ENC")]
             if not encs or d[2] == "main":
                 continue
             with self.subTest(board=d[2]):
                 pts = sorted((round(f.x, 3), round(f.y, 3)) for f in encs)
-                corners = [p for p in pts if p != (25.0, 34.0)]
-                self.assertEqual(ENC_GRID.get(d[2], [(11.0, 20.0), (11.0, 48.0), (39.0, 20.0), (39.0, 48.0)]),
-                                 corners)
+                square = ENC_GRID.get(d[2], [(11.0, 20.0), (11.0, 48.0), (39.0, 20.0), (39.0, 48.0)])
+                centre = (round(sum(x for x, _ in square) / 4, 3), round(sum(y for _, y in square) / 4, 3))
+                self.assertEqual(square, [p for p in pts if p != centre])
                 if len(pts) == 5:
-                    self.assertIn((25.0, 34.0), pts)
+                    self.assertIn(centre, pts)
                 dmin = min(math.dist(a, b_) for i, a in enumerate(pts) for b_ in pts[i + 1:])
                 self.assertGreaterEqual(dmin, 19.0)
                 for f in encs:
@@ -225,18 +227,22 @@ class Mechanics(unittest.TestCase):
         self.assertAlmostEqual((x0 + x1) / 2, xs[2])
 
 
-class GateComp(unittest.TestCase):
-    """Gate + Comp: the 1590N1 template outline, footswitch holes, markings, test pads, JLCPCB rules."""
+class _Templated:
+    """Boards cut to an enclosure template, hanging on two Q27 push buttons, with the RJ45 with LEDs: the outline,
+    buttons, markings, test pads, JLCPCB rules, nothing beyond the template's rim. A subclass sets the board (BOARD),
+    its generator module (GEN), the buttons' positions and names."""
+    BOARD = GEN = None
+    BUTTONS = ()                 # ((x, y), name) left to right
 
     @classmethod
     def setUpClass(cls):
-        cls.d = next(x for x in BOARDS if x[2] == "gate_comp")
+        cls.d = next(x for x in BOARDS if x[2] == cls.BOARD)
         cls.b = Board(path(cls.d, ".kicad_pcb"))
         cls.des = design(cls.d)
 
     def test_outline_is_the_template(self):
         """Edge.Cuts = the template's outline, moved to the origin: same items, same coordinates."""
-        tpl = Outline(OUTLINES["gate_comp"])
+        tpl = Outline(OUTLINES[self.BOARD])
         got = []
         for g in self.b.edges:
             pts = [(round(float(g_[1]) - OX, 6), round(float(g_[2]) - OY, 6))
@@ -250,16 +256,16 @@ class GateComp(unittest.TestCase):
     def test_outline_rows(self):
         """Every grid row of the board has an inside span (a row through a vertex of the contour once found one
         crossing only, and the router's keep-out then closed the whole row, cutting the top tab off)."""
-        tpl = Outline(OUTLINES["gate_comp"])
+        tpl = Outline(OUTLINES[self.BOARD])
         step = 0.125
         rows = [k * step for k in range(int(round(tpl.height / step)) + 1)]
         self.assertEqual([], [y for y in rows if tpl.span(min(max(y, 1e-6), tpl.height - 1e-6)) is None])
 
     def test_buttons(self):
-        """Q27 push buttons on the top side at (16, 96) and (44, 96), COMM on GND and NO on the footswitch wire pad's
-        net (before the debounce), NC open; GATE / COMPRESSOR under them as large as the name on the back."""
+        """Q27 push buttons on the top side at their positions, COMM on GND and NO on the footswitch wire pad's net
+        (before the debounce), NC open; their names under them as large as the board's name on the back."""
         q27 = sorted((f for f in self.b.footprints if "Q27" in f.lib_id), key=lambda f: f.x)
-        self.assertEqual([(16.0, 96.0), (44.0, 96.0)], [(round(f.x, 3), round(f.y, 3)) for f in q27])
+        self.assertEqual([xy for xy, _ in self.BUTTONS], [(round(f.x, 3), round(f.y, 3)) for f in q27])
         self.assertEqual({"F.Cu"}, {f.layer for f in q27})
         wires = {p.net for f in self.b.footprints if "WirePads" in f.lib_id for p in f.pads if p.num == "1"}
         for f in q27:
@@ -268,10 +274,11 @@ class GateComp(unittest.TestCase):
             self.assertIn(pads["2"], wires, f.ref)
             self.assertTrue(pads["3"].startswith("unconnected-"), f.ref)
         texts = {(t, round(h, 2)) for t, layer, (h, _) in self.b.texts if layer == "F.SilkS"}
-        name_h = next(round(h, 2) for t, layer, (h, _) in self.b.texts if layer == "B.SilkS" and "GATE-COMP" in t)
-        self.assertIn(("GATE", name_h), texts)
-        self.assertIn(("COMPRESSOR", name_h), texts)
-        self.assertEqual([], [f.ref for f in self.b.footprints if f.ref.startswith("H") and f.y > 80])
+        gen = __import__(self.GEN)
+        name_h = next(round(h, 2) for t, layer, (h, _) in self.b.texts if layer == "B.SilkS" and t == gen.NAME)
+        for _, name in self.BUTTONS:
+            self.assertIn((name, name_h), texts)
+        self.assertEqual([], [f.ref for f in self.b.footprints if f.ref.startswith("H")])
 
     def test_jack_leds(self):
         """The shielded RJ45 with LEDs: shield on GND; left LED +3V3 - 1k - anode, cathode on INT; right LED anode on
@@ -290,12 +297,12 @@ class GateComp(unittest.TestCase):
 
     def test_markings(self):
         """Name and revision from the generator's one place, and 'Made on the Island', on silkscreen."""
-        import gen_gate_comp
+        gen = __import__(self.GEN)
         texts = {t for t, layer, _ in self.b.texts if "SilkS" in layer}
-        self.assertIn(gen_gate_comp.NAME, texts)
-        self.assertIn(f"Rev{gen_gate_comp.REV}", texts)
+        self.assertIn(gen.NAME, texts)
+        self.assertIn(f"Rev{gen.REV}", texts)
         self.assertIn("Made on the Island", texts)
-        self.assertEqual(gen_gate_comp.REV, self.des.rev)
+        self.assertEqual(gen.REV, self.des.rev)
 
     def test_test_points(self):
         """Test pads on the bottom side for GND (the global net), 3V3, the card-side I2C, INT and RESET."""
@@ -359,6 +366,18 @@ class GateComp(unittest.TestCase):
             if min(self.rim_clearance(cx, cy) for cx, cy in corners) < 0:
                 bad.append((ref, text))
         self.assertEqual([], bad)
+
+
+class GateComp(_Templated, unittest.TestCase):
+    """Gate + Comp: the Type_Z-77_1590N1 template, GATE / COMPRESSOR buttons."""
+    BOARD, GEN = "gate_comp", "gen_gate_comp"
+    BUTTONS = (((16.0, 96.0), "GATE"), ((44.0, 96.0), "COMPRESSOR"))
+
+
+class Effect(_Templated, unittest.TestCase):
+    """Effect: the Type_Z-76_Z-77 template, MODE / ON buttons on the side lines."""
+    BOARD, GEN = "effect", "gen_effect"
+    BUTTONS = (((10.0, 87.0), "MODE"), ((40.0, 87.0), "ON"))
 
 
 class MainLayout(unittest.TestCase):

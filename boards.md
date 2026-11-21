@@ -4,7 +4,7 @@ Decisions: [README.md](README.md). Generator: [common/README.md](common/README.m
 
 | Board | Dir | Size | Colour | Addr (jumpers, factory) | Encoders | Indicators | Wire pads | ERC / DRC |
 |---|---|---|---|---|---|---|---|---|
-| Effect | `effect/` | 50 × 65 | purple | 0x23 (A0=1 A1=1 A2=0) | FDBK, DEPTH, MIX (centre), PR_DL, SPEED | CH FL PH TR | MODE, ON | 0 / 0 |
+| Effect (**Rev0**, see [effect/REPORT.md](effect/REPORT.md)) | `effect/` | 50 × 104, Type_Z-76_Z-77 template | purple | 0x23 (A0=1 A1=1 A2=0) | FDBK, DEPTH, MIX (centre), PR_DL, SPEED | CH FL PH TR | MODE, ON (debounced, Q27 buttons); 6 test pads | 0 / 0 |
 | Gate + Comp (**Rev0**, see [gain-compressor/REPORT.md](gain-compressor/REPORT.md)) | `gain-compressor/` | 60 × 116, 1590N1 template | yellow | 0x22 (A0=0 A1=1 A2=0) | THRESHOLD, LEVEL, DECAY, SUSTAIN | GATE, COMP | SW, SW (debounced); 6 test pads | 0 / 0 |
 | Echo | `echo/` | 50 × 65 | white, black silk | 0x24 (A0=0 A1=0 A2=1) | FDBK, TIME (push = TAP), MIX (centre), BASS, TREBLE | TAPE, DIGI | MODE, TAP, ON | 0 / 0 |
 | Reverb | `rever/` | 50 × 65 | blue | 0x25 (A0=1 A1=0 A2=1) | DECAY, PR_DL, TONE, MIX | SP RM PT HL | MODE, ON | 0 / 0 |
@@ -19,9 +19,11 @@ DRC includes schematic parity and refilled zones; KiCad 10.0.2. Each board regen
 - Encoders (Bourns PEC11R-4015F-S0024, push switch unconnected except Echo TIME = TAP) on the top side, 28 mm
   square (centre encoder for 5-knob pedals); pins face the centre column. The panel rests on the encoder
   bushings, 6 mm above the board.
-- Gate + Comp hangs on its two Dailywell Q27 push buttons soldered into the board instead (lid on their housings,
+- Gate + Comp and Effect hang on their two Dailywell Q27 push buttons soldered into the board instead (lid on their housings,
   10.43 mm above the board; the encoders only pass through 7.5 mm lid holes), shielded RJ45 with power / INT LEDs,
-  rim 0.3 mm: [gain-compressor/REPORT.md](gain-compressor/REPORT.md).
+  rim 0.3 mm: [gain-compressor/REPORT.md](gain-compressor/REPORT.md), [effect/REPORT.md](effect/REPORT.md). Effect:
+  encoders on a 30 mm square on the side lines x = 10 / 40 (MIX in the centre), indicators at y = 65, buttons at
+  y = 87.
 - On-board LEDs + their jumpers in a row 3 mm above the bottom edge; the bezel lamps' wire pads (`+` = GPIO,
   `−` = GND) below each LED, footswitch wire pads in the bottom corners (GPIO, GND).
 - Presets hangs on its five footswitches: 12.5 mm holes (M12 clearance, ISO 273 fine) at y = 36 mm, 45 mm
@@ -58,7 +60,7 @@ blue and orange LED) ≈ $18 in fees; THT on the top side only (9 encoders, 2 di
 ## Not verified / open
 
 - Encoder land pattern: corrected in `PedalLib` to the Bourns PEC11R datasheet on 2026-11-21 (pin rows 7.5 / 7.0 mm,
-  lugs ±6.6 mm, body 6.5 mm, not 6). Only Gate + Comp is regenerated with it so far; the other boards fail the
+  lugs ±6.6 mm, body 6.5 mm, not 6). Only Gate + Comp and Effect are regenerated with it so far; the others fail the
   library check (`Checks.test_drc`) until each is regenerated.
 - RJ45 pin numbering = T568B wire order in README.md; check against the existing cables before ordering.
 - Lamp / LED / footswitch positions on the panel follow the board layout; no drill template yet.
